@@ -109,8 +109,9 @@ info: |
 | CNAME | www | 사용자이름.github.io |
 
 4. 반영을 기다립니다. 몇 분에서 하루까지 걸립니다. `Custom domain` 칸 아래 확인 표시가 초록으로 바뀌면 됩니다.
-5. 같은 화면의 `Enforce HTTPS`를 켭니다. 켤 수 있게 되기까지 최대 24시간이 걸립니다.
-6. 권장: GitHub 오른쪽 위 프로필 → `Settings` → `Pages`에서 도메인 소유 확인(verify)을 해 두면, 남이 같은 도메인을 자기 GitHub에 거는 일을 막습니다.
+5. `src/_data/site.json`의 주소를 새 도메인(예: `https://parkhyokyung.com`)으로 고칩니다. 링크 미리보기 사진이 이 주소를 씁니다.
+6. 같은 화면의 `Enforce HTTPS`를 켭니다. 켤 수 있게 되기까지 최대 24시간이 걸립니다.
+7. 권장: GitHub 오른쪽 위 프로필 → `Settings` → `Pages`에서 도메인 소유 확인(verify)을 해 두면, 남이 같은 도메인을 자기 GitHub에 거는 일을 막습니다.
 
 ---
 

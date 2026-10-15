@@ -4,10 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{% if title %}{{ title }} · {% endif %}Park Hyokyung</title>
-<meta name="description" content="{{ description or '박효경. 연극비평가, 드라마터그. 극장 다니는 사람.' }}">
+<meta name="description" content="{{ description or ((work + ' · 박효경') if work) or '박효경. 연극비평가, 드라마터그. 극장 다니는 사람.' }}">
 <meta property="og:title" content="{% if title %}{{ title }} · {% endif %}Park Hyokyung">
-<meta property="og:description" content="{{ description or '박효경. 연극비평가, 드라마터그. 극장 다니는 사람.' }}">
-<meta property="og:image" content="{{ image or '/assets/images/stage.jpg' }}">
+<meta property="og:description" content="{{ description or ((work + ' · 박효경') if work) or '박효경. 연극비평가, 드라마터그. 극장 다니는 사람.' }}">
+<meta property="og:image" content="{{ site.url }}{{ image or '/assets/images/stage.jpg' }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:type" content="{% if layout == 'post.njk' %}article{% else %}website{% endif %}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;500;700&family=Noto+Serif+KR:wght@400;600&family=IBM+Plex+Sans+KR:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap">
