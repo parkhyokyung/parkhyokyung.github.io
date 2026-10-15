@@ -99,15 +99,16 @@ ul{padding:0;list-style:none}
 /* section blocks */
 .latest{padding-block:clamp(40px,5.5vw,64px);border-top:1px solid var(--line)}
 .latest + .latest{border-top:0}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:18px;border-bottom:1px solid var(--line)}
-.numbered li{display:grid;grid-template-columns:3.5rem minmax(0,1fr);gap:0 8px;padding-block:26px;border-bottom:1px solid var(--line)}
-.numbered .num{font-size:21px;font-weight:300;color:var(--ink-3);font-variant-numeric:tabular-nums;line-height:1.45}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.co{margin-left:10px;font-size:12.5px;font-weight:400;letter-spacing:-.01em;text-transform:none;color:var(--ink-2)}
+.numbered li{display:grid;grid-template-columns:3.25rem minmax(0,1fr);gap:0 8px;padding-block:17px;border-bottom:1px solid var(--line)}
+.numbered .num{font-size:18px;font-weight:300;color:var(--ink-3);font-variant-numeric:tabular-nums;line-height:1.5}
 .numbered .meta{font-size:13px}
-.numbered h3{margin-top:6px;font-size:clamp(20px,2.5vw,25px);font-weight:500;line-height:1.42;letter-spacing:-.045em;text-wrap:balance}
+.numbered h3{margin-top:3px;font-size:clamp(19px,2.2vw,23px);font-weight:500;line-height:1.38;letter-spacing:-.045em;text-wrap:balance}
 .numbered h3 a:hover{text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:3px;text-underline-offset:.2em}
-.numbered .dek{margin-top:10px;font-size:15.5px;line-height:1.7;color:var(--ink-2)}
+.numbered .dek{margin-top:4px;font-size:15px;line-height:1.6;color:var(--ink-2)}
 .numbered.plain li{grid-template-columns:minmax(0,1fr)}
-.card{margin-top:22px;background:var(--paper);border-radius:14px;padding:4px clamp(18px,3vw,28px)}
+.card{margin-top:18px;background:var(--paper);border-radius:14px;padding:4px clamp(18px,3vw,26px)}
 .card .numbered li:last-child{border-bottom:0}
 .numbered .rows{margin-top:14px}
 .after{margin-top:20px}
@@ -117,7 +118,11 @@ ul{padding:0;list-style:none}
 .rows div{display:grid;grid-template-columns:3.5rem minmax(0,1fr);gap:12px}
 .rows dt{font-size:13px;color:var(--ink-3);padding-top:2px}
 .rows dd{font-size:14.5px;line-height:1.78;color:var(--ink-2)}
-.email{padding-top:26px}
+.profile{margin-top:22px;max-width:34em}
+.pname{font-size:clamp(26px,3.4vw,33px);font-weight:500;letter-spacing:-.045em;line-height:1.2}
+.pbio{margin-top:12px;font-size:16.5px;line-height:1.75;color:var(--ink-2)}
+.pnote{margin-top:14px;font-size:14px;line-height:1.7;color:var(--ink-3)}
+.email{padding-top:22px}
 .email a{font-size:15.5px;font-weight:500;letter-spacing:-.01em;border-bottom:2px solid var(--yellow);padding-bottom:2px;overflow-wrap:anywhere}
 .email a:hover{color:var(--ink-2)}
 
@@ -183,7 +188,7 @@ ul{padding:0;list-style:none}
   .sec-head{flex-direction:column;align-items:flex-start;gap:6px}
   .numbered li{grid-template-columns:2.6rem minmax(0,1fr)}
   .numbered.plain li{grid-template-columns:minmax(0,1fr)}
-.card{margin-top:22px;background:var(--paper);border-radius:14px;padding:4px clamp(18px,3vw,28px)}
+.card{margin-top:18px;background:var(--paper);border-radius:14px;padding:4px clamp(18px,3vw,26px)}
 .card .numbered li:last-child{border-bottom:0}
   .numbered .num{font-size:18px}
   .rows div{grid-template-columns:minmax(0,1fr);gap:0}
