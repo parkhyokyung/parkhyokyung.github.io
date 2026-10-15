@@ -98,6 +98,7 @@ ul{padding:0;list-style:none}
 .numbered h3{margin-top:6px;font-size:clamp(20px,2.5vw,25px);font-weight:500;line-height:1.42;letter-spacing:-.045em;text-wrap:balance}
 .numbered h3 a:hover{text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:3px;text-underline-offset:.2em}
 .numbered .dek{margin-top:10px;font-size:15.5px;line-height:1.7;color:var(--ink-2)}
+.numbered.plain li{grid-template-columns:minmax(0,1fr)}
 .numbered .rows{margin-top:14px}
 .after{margin-top:20px}
 
@@ -168,6 +169,7 @@ ul{padding:0;list-style:none}
   .site-nav{gap:4px 16px;font-size:14px}
   .latest-head{flex-direction:column;align-items:flex-start}
   .numbered li{grid-template-columns:2.6rem minmax(0,1fr)}
+  .numbered.plain li{grid-template-columns:minmax(0,1fr)}
   .numbered .num{font-size:18px}
   .rows div{grid-template-columns:minmax(0,1fr);gap:0}
   .prose{font-size:16.5px}
