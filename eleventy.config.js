@@ -22,6 +22,9 @@ export default function (config) {
 
   config.addFilter("subline", (data) => [data.work, data.source].filter(Boolean).join(" · "));
 
+  // 배포할 때마다 바뀌는 값. 브라우저가 예전 스타일을 붙잡지 않게 한다
+  config.addGlobalData("build", () => Date.now().toString(36));
+
   config.addFilter("iso", (d) => new Date(d).toISOString().slice(0, 10));
 
   const CAT = { criticism: "비평", programme: "프로그램 글", academic: "논문" };
