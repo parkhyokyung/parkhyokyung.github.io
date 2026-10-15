@@ -52,7 +52,7 @@
         <li><a href="mailto:hyokyung.scene@gmail.com">이메일</a></li>
       </ul>
     </div>
-    <p class="legal">© {{ "now" | year }} 박효경. 글과 사진의 저작권은 각 저작자에게 있습니다.</p>
+    <p class="legal">© {{ "now" | year }} 박효경</p>
   </div>
 </footer>
 
@@ -68,15 +68,27 @@
   });
   var chips=document.querySelectorAll('.chip');
   if(!chips.length) return;
-  var items=document.querySelectorAll('#writing .item');
+  var items=[].slice.call(document.querySelectorAll('#writing .list .item'));
+  var only=document.querySelectorAll('#writing [data-only]');
+  var LIMIT=6, expanded=false, current='all';
   function apply(f){
+    current=f;
     chips.forEach(function(o){o.setAttribute('aria-pressed', o.getAttribute('data-filter')===f ? 'true':'false')});
-    items.forEach(function(it){it.hidden=!(f==='all'||it.getAttribute('data-cat')===f)});
+    var shown=0;
+    items.forEach(function(it){
+      var match=(f==='all'||it.getAttribute('data-cat')===f);
+      if(match && f==='all' && !expanded && shown>=LIMIT) match=false;
+      it.hidden=!match; if(match) shown++;
+    });
+    only.forEach(function(el){
+      var want=el.getAttribute('data-only');
+      el.hidden = want==='all' ? (f!=='all' || expanded || items.length<=LIMIT) : want!==f;
+    });
   }
   chips.forEach(function(c){c.addEventListener('click', function(){apply(c.getAttribute('data-filter'))})});
-  document.querySelectorAll('[data-set-filter]').forEach(function(a){
-    a.addEventListener('click', function(){apply(a.getAttribute('data-set-filter'))});
-  });
+  var more=document.getElementById('show-all');
+  if(more) more.addEventListener('click', function(){expanded=true; apply('all')});
+  apply('all');
 })();
 </script>
 </body>
