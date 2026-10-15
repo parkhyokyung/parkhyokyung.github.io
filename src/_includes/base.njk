@@ -93,7 +93,7 @@
     };
     pills.forEach(function(p){p.addEventListener('click', function(){apply(p.getAttribute('data-filter'))})});
     var h=location.hash.replace('#','');
-    apply(['criticism','programme','academic'].indexOf(h)>-1 ? h : 'all');
+    apply(['criticism','brief','programme','academic'].indexOf(h)>-1 ? h : 'all');
   }
 
   /* 펼침 메뉴와 검색 */

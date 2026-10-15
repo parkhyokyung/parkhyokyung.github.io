@@ -37,6 +37,7 @@ content:
         options:
           values:
             - { name: criticism, label: 비평 }
+            - { name: brief, label: 단평 }
             - { name: programme, label: 프로그램 글 }
             - { name: academic, label: 논문 }
       - name: date

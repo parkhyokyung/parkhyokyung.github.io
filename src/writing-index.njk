@@ -6,6 +6,7 @@ description: 박효경의 비평, 프로그램 글, 논문
 ---
 {%- set all = collections.writing -%}
 {%- set nCrit = (all | byCategory("criticism")).length -%}
+{%- set nBrief = (all | byCategory("brief")).length -%}
 {%- set nProg = (all | byCategory("programme")).length -%}
 {%- set nAcad = (all | byCategory("academic")).length -%}
 {%- set featured = null -%}
@@ -17,9 +18,10 @@ description: 박효경의 비평, 프로그램 글, 논문
     <p class="lede">극장에서 본 것을 쓴 비평, 공연 프로그램에 실은 글, 논문. 최신순으로 보거나 분류별로 골라 본다.</p>
     <div class="pills" role="group" aria-label="분류">
       <button class="pill" type="button" data-filter="all" aria-pressed="true">전체 <span class="n">{{ all.length }}</span></button>
-      <button class="pill" type="button" data-filter="criticism" aria-pressed="false">비평 <span class="n">{{ nCrit }}</span></button>
-      <button class="pill" type="button" data-filter="programme" aria-pressed="false">프로그램 글 <span class="n">{{ nProg }}</span></button>
-      <button class="pill" type="button" data-filter="academic" aria-pressed="false">논문 <span class="n">{{ nAcad }}</span></button>
+      {% if nCrit %}<button class="pill" type="button" data-filter="criticism" aria-pressed="false">비평 <span class="n">{{ nCrit }}</span></button>{% endif %}
+      {% if nBrief %}<button class="pill" type="button" data-filter="brief" aria-pressed="false">단평 <span class="n">{{ nBrief }}</span></button>{% endif %}
+      {% if nProg %}<button class="pill" type="button" data-filter="programme" aria-pressed="false">프로그램 글 <span class="n">{{ nProg }}</span></button>{% endif %}
+      {% if nAcad %}<button class="pill" type="button" data-filter="academic" aria-pressed="false">논문 <span class="n">{{ nAcad }}</span></button>{% endif %}
     </div>
   </header>
 
@@ -31,7 +33,7 @@ description: 박효경의 비평, 프로그램 글, 논문
       <img src="{{ featured.data.image }}" alt="{{ featured.data.image_alt or '' }}" loading="lazy">
       <span class="cat">{{ featured.data.category | catLabel }}</span>
       <span class="ftitle">{{ featured.data.title }}{% if not featured.data.hasPage %}<span class="ext"> ↗</span>{% endif %}</span>
-      <span class="fmeta">{{ featured.date | dot }}{% if featured.data.work %} · {{ featured.data.work }}{% endif %}</span>
+      <span class="fmeta">{{ featured.date | dot }}{% if featured.data.work %} {{ featured.data.work }}{% endif %}</span>
     </a>
   </section>
   {%- endif %}
@@ -44,7 +46,7 @@ description: 박효경의 비평, 프로그램 글, 논문
       <li class="entry" data-cat="{{ item.data.category }}">
         <p class="cat">{{ item.data.category | catLabel }}</p>
         <h3>{% if featured and item.page.inputPath == featured.page.inputPath %}<span class="star" aria-label="추천 글">★</span> {% endif %}{% if item.data.hasPage %}<a href="{{ item.url }}">{{ item.data.title }}</a>{% elif item.data.link %}<a href="{{ item.data.link }}" target="_blank" rel="noopener">{{ item.data.title }}<span class="ext" aria-label="외부 링크"> ↗</span></a>{% else %}{{ item.data.title }}{% endif %}</h3>
-        <p class="emeta"><time datetime="{{ item.date | iso }}">{{ item.date | dot }}</time>{%- set sl = item.data | subline %}{% if sl %} · {{ sl }}{% endif %}</p>
+        <p class="emeta"><time datetime="{{ item.date | iso }}">{{ item.date | dot }}</time>{%- set sl = item.data | subline %}{% if sl %} {{ sl }}{% endif %}</p>
       </li>
     {%- endfor %}
     </ul>
