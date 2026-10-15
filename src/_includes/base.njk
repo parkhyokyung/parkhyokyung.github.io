@@ -19,7 +19,7 @@
   <div class="wrap-wide">
     <a class="site-name" href="/">박효경 Park Hyokyung</a>
     <nav class="site-nav" aria-label="섹션">
-      <a href="/#writing">Writing</a>
+      <a href="/writing/">Writing</a>
       <a href="/#dramaturg">Dramaturg</a>
       <a href="/#management">Management</a>
       <a href="/#about">About</a>
@@ -35,29 +35,21 @@
 
 <script>
 (function(){
-  var chips=document.querySelectorAll('.chip');
-  if(!chips.length) return;
-  var items=[].slice.call(document.querySelectorAll('#writing .list .item'));
-  var only=document.querySelectorAll('#writing [data-only]');
-  var LIMIT=6, expanded=false, current='all';
+  var pills=document.querySelectorAll('.pill');
+  if(!pills.length) return;
+  var entries=document.querySelectorAll('.entry'), groups=document.querySelectorAll('[data-group]');
+  var featured=document.querySelector('.featured'), only=document.querySelectorAll('[data-only]');
   function apply(f){
-    current=f;
-    chips.forEach(function(o){o.setAttribute('aria-pressed', o.getAttribute('data-filter')===f ? 'true':'false')});
-    var shown=0;
-    items.forEach(function(it){
-      var match=(f==='all'||it.getAttribute('data-cat')===f);
-      if(match && f==='all' && !expanded && shown>=LIMIT) match=false;
-      it.hidden=!match; if(match) shown++;
-    });
-    only.forEach(function(el){
-      var want=el.getAttribute('data-only');
-      el.hidden = want==='all' ? (f!=='all' || expanded || items.length<=LIMIT) : want!==f;
-    });
+    pills.forEach(function(p){p.setAttribute('aria-pressed', p.getAttribute('data-filter')===f ? 'true':'false')});
+    entries.forEach(function(e){e.hidden=!(f==='all'||e.getAttribute('data-cat')===f)});
+    groups.forEach(function(g){g.hidden=!g.querySelector('.entry:not([hidden])')});
+    if(featured) featured.hidden=!(f==='all'||featured.getAttribute('data-cat')===f);
+    only.forEach(function(el){el.hidden=el.getAttribute('data-only')!==f});
+    try{history.replaceState(null,'', f==='all' ? location.pathname : '#'+f)}catch(e){}
   }
-  chips.forEach(function(c){c.addEventListener('click', function(){apply(c.getAttribute('data-filter'))})});
-  var more=document.getElementById('show-all');
-  if(more) more.addEventListener('click', function(){expanded=true; apply('all')});
-  apply('all');
+  pills.forEach(function(p){p.addEventListener('click', function(){apply(p.getAttribute('data-filter'))})});
+  var h=location.hash.replace('#','');
+  apply(['criticism','programme','academic'].indexOf(h)>-1 ? h : 'all');
 })();
 </script>
 </body>

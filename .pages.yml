@@ -58,6 +58,11 @@ content:
         label: 원문 주소
         type: string
         description: 본문을 비우고 원문 주소만 적으면 목록에서 원문으로 바로 연결됩니다.
+      - name: onsite
+        label: 사이트 안에 글 페이지 만들기
+        type: boolean
+        default: true
+        description: 끄면 본문이 있어도 목록에서 원문 주소로 바로 연결됩니다.
       - name: seen
         label: 관람일
         type: date

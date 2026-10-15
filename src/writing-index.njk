@@ -1,0 +1,52 @@
+---
+layout: base.njk
+permalink: /writing/
+title: 글
+description: 박효경의 비평, 프로그램 글, 논문
+---
+{%- set all = collections.writing -%}
+{%- set featured = null -%}
+{%- for it in all -%}{%- if not featured and it.data.image -%}{%- set featured = it -%}{%- endif -%}{%- endfor -%}
+<main class="archive wrap">
+  <header class="archive-head">
+    <p class="kicker">Writing · {{ all.length }}편</p>
+    <h1>글</h1>
+    <p class="lede">극장에서 본 것을 쓴 비평, 공연 프로그램에 실은 글, 논문. 최신순으로 보거나 분류별로 골라 본다.</p>
+    <div class="pills" role="group" aria-label="분류">
+      <button class="pill" type="button" data-filter="all" aria-pressed="true">전체</button>
+      <button class="pill" type="button" data-filter="criticism" aria-pressed="false">비평</button>
+      <button class="pill" type="button" data-filter="programme" aria-pressed="false">프로그램 글</button>
+      <button class="pill" type="button" data-filter="academic" aria-pressed="false">논문</button>
+    </div>
+  </header>
+
+  {%- if featured %}
+  {%- set fhref = featured.url if featured.data.hasPage else featured.data.link %}
+  <section class="featured" data-cat="{{ featured.data.category }}">
+    <p class="kicker">Featured</p>
+    <a class="featured-card" href="{{ fhref }}"{% if not featured.data.hasPage %} target="_blank" rel="noopener"{% endif %}>
+      <img src="{{ featured.data.image }}" alt="{{ featured.data.image_alt or '' }}" loading="lazy">
+      <span class="cat">{{ featured.data.category | catLabel }}</span>
+      <span class="ftitle">{{ featured.data.title }}{% if not featured.data.hasPage %}<span class="ext"> ↗</span>{% endif %}</span>
+      <span class="fmeta">{{ featured.date | dot }}{% if featured.data.work %} · {{ featured.data.work }}{% endif %}</span>
+    </a>
+  </section>
+  {%- endif %}
+
+  {%- for g in all | byYear %}
+  <section class="year-group" data-group>
+    <h2 class="year">{{ g.year }}</h2>
+    <ul class="entries">
+    {%- for item in g.items %}
+      <li class="entry" data-cat="{{ item.data.category }}">
+        <p class="cat">{{ item.data.category | catLabel }}</p>
+        <h3>{% if featured and item.page.inputPath == featured.page.inputPath %}<span class="star" aria-label="추천 글">★</span> {% endif %}{% if item.data.hasPage %}<a href="{{ item.url }}">{{ item.data.title }}</a>{% elif item.data.link %}<a href="{{ item.data.link }}" target="_blank" rel="noopener">{{ item.data.title }}<span class="ext" aria-label="외부 링크"> ↗</span></a>{% else %}{{ item.data.title }}{% endif %}</h3>
+        <p class="emeta">{{ item.data | subline }}</p>
+      </li>
+    {%- endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+
+  <p class="after" data-only="criticism" hidden><a class="more-link" href="https://saicriticism.com/?s=%EB%8B%A8%ED%8F%89+%EB%B0%95%ED%9A%A8%EA%B2%BD" target="_blank" rel="noopener">단평 모아보기 ↗</a></p>
+</main>

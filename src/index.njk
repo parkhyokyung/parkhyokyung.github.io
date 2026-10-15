@@ -14,29 +14,26 @@ permalink: /
     </div>
   </section>
 
-  <section class="section wrap-wide" id="writing">
-    <div class="side">
-      <h2>Writing</h2>
-      <div class="filters" role="group" aria-label="분류">
-        <button class="chip" type="button" data-filter="all" aria-pressed="true">전체</button>
-        <button class="chip" type="button" data-filter="criticism" aria-pressed="false">비평</button>
-        <button class="chip" type="button" data-filter="programme" aria-pressed="false">프로그램 글</button>
-        <button class="chip" type="button" data-filter="academic" aria-pressed="false">논문</button>
+  <section class="latest wrap-wide" id="writing">
+    <div class="latest-head">
+      <div>
+        <p class="kicker">Latest writing</p>
+        <h2>새로 쓴 글부터.</h2>
       </div>
+      <a class="more-link" href="/writing/">모두 보기 →</a>
     </div>
-    <div class="main">
-      <ul class="list">
-{%- for item in collections.writing %}
-        <li class="item" data-cat="{{ item.data.category }}">
+    <ol class="numbered">
+{%- for item in collections.writing | head(4) %}
+      <li>
+        <span class="num">{{ loop.index | pad2 }}</span>
+        <div>
           <p class="meta"><span>{{ item.date | year }}</span><span>{{ item.data.category | catLabel }}</span>{% if item.data.source %}<span>{{ item.data.source }}</span>{% endif %}</p>
           <h3>{% if item.data.hasPage %}<a href="{{ item.url }}">{{ item.data.title }}</a>{% elif item.data.link %}<a href="{{ item.data.link }}" target="_blank" rel="noopener">{{ item.data.title }}<span class="ext" aria-label="외부 링크"> ↗</span></a>{% else %}{{ item.data.title }}{% endif %}</h3>
-          {% if item.data.work %}<p class="sub">{{ item.data.work }}</p>{% endif %}
-        </li>
+          {% if item.data.work %}<p class="dek">{{ item.data.work }}</p>{% endif %}
+        </div>
+      </li>
 {%- endfor %}
-      </ul>
-      <p class="after" data-only="all"><button class="text-btn" type="button" id="show-all">{{ collections.writing.length }}편 모두 보기</button></p>
-      <p class="after" data-only="criticism" hidden><a class="text-btn" href="https://saicriticism.com/?s=%EB%8B%A8%ED%8F%89+%EB%B0%95%ED%9A%A8%EA%B2%BD" target="_blank" rel="noopener">단평 모아보기 ↗</a></p>
-    </div>
+    </ol>
   </section>
 
   <section class="section wrap-wide" id="dramaturg">

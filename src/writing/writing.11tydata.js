@@ -1,6 +1,7 @@
 // 이 폴더의 글 파일에 공통으로 적용되는 설정입니다. 고칠 필요가 없습니다.
 // 본문이 있는 글은 사이트 안에 글 페이지가 생기고,
 // 본문 없이 link만 있는 글은 목록에서 원문으로 바로 연결됩니다.
+// onsite: false 를 적으면 본문이 있어도 사이트 안 페이지를 만들지 않고 link로 연결합니다.
 import fs from "node:fs";
 
 function hasBody(inputPath) {
@@ -13,7 +14,8 @@ export default {
   layout: "post.njk",
   categoryLabel: { criticism: "Criticism", programme: "Programme", academic: "Academic" },
   eleventyComputed: {
-    hasPage: (data) => hasBody(data.page.inputPath),
-    permalink: (data) => (hasBody(data.page.inputPath) ? `/writing/${data.page.fileSlug}/` : false),
+    hasPage: (data) => data.onsite !== false && hasBody(data.page.inputPath),
+    permalink: (data) =>
+      data.onsite !== false && hasBody(data.page.inputPath) ? `/writing/${data.page.fileSlug}/` : false,
   },
 };

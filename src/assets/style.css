@@ -11,18 +11,19 @@
   --line:#ebe9e3;
   --yellow:#f8cd5f;            /* Prose accent */
   --on-yellow:#0b0b0b;
+  --accent-ink:#86650f;        /* Prose yellow deepened for small text */
   --sans:"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   --col:40rem;
   --wide:66rem;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --paper:#121211; --soft:#1b1b19; --ink:#f3f2ee; --ink-2:#bdbab2; --ink-3:#8a877f; --line:#2b2a26;
+    --paper:#121211; --soft:#1b1b19; --ink:#f3f2ee; --ink-2:#bdbab2; --ink-3:#8a877f; --line:#2b2a26; --accent-ink:#f8cd5f;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --paper:#121211; --soft:#1b1b19; --ink:#f3f2ee; --ink-2:#bdbab2; --ink-3:#8a877f; --line:#2b2a26;
+  --paper:#121211; --soft:#1b1b19; --ink:#f3f2ee; --ink-2:#bdbab2; --ink-3:#8a877f; --line:#2b2a26; --accent-ink:#f8cd5f;
   color-scheme:dark;
 }
 
@@ -140,3 +141,52 @@ ul{padding:0;list-style:none}
   .rows div{grid-template-columns:minmax(0,1fr);gap:0}
   .prose{font-size:16.5px}
 }
+
+/* shared: Quiet-style kicker and arrow link */
+.kicker{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink)}
+.more-link{font-size:15px;font-weight:500;color:var(--accent-ink);white-space:nowrap}
+.more-link:hover{text-decoration:underline;text-underline-offset:.25em}
+
+/* home: latest writing */
+.latest{padding-block:clamp(40px,6vw,64px);border-top:1px solid var(--line)}
+.latest-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.latest-head h2{margin-top:10px;font-size:clamp(28px,4vw,40px);font-weight:500;line-height:1.25;letter-spacing:-.045em}
+.numbered{list-style:none;margin:0;padding:0}
+.numbered li{display:grid;grid-template-columns:3.5rem minmax(0,1fr);gap:0 8px;padding-block:28px;border-bottom:1px solid var(--line)}
+.numbered .num{font-size:22px;font-weight:300;color:var(--ink-3);font-variant-numeric:tabular-nums;line-height:1.4}
+.numbered .meta{font-size:13.5px}
+.numbered h3{margin-top:6px;font-size:clamp(21px,2.6vw,26px);font-weight:500;line-height:1.4;letter-spacing:-.04em;text-wrap:balance}
+.numbered h3 a:hover{text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:3px;text-underline-offset:.2em}
+.numbered .dek{margin-top:10px;font-size:16px;line-height:1.7;color:var(--ink-2)}
+
+/* archive page */
+.archive{padding-bottom:72px}
+.archive-head{padding-block:clamp(32px,6vw,64px) 28px;border-bottom:1px solid var(--line)}
+.archive-head h1{margin-top:10px;font-size:clamp(40px,7vw,60px);font-weight:500;letter-spacing:-.05em;line-height:1.1}
+.archive-head .lede{margin-top:16px;font-size:16.5px;line-height:1.75;color:var(--ink-2);max-width:32em}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.pill{font:inherit;font-size:14px;line-height:1;padding:10px 16px;border-radius:999px;cursor:pointer;color:var(--ink-2);background:transparent;border:1px solid var(--line)}
+.pill:hover{color:var(--ink);border-color:var(--ink-3)}
+.pill[aria-pressed="true"]{background:var(--yellow);border-color:var(--yellow);color:var(--on-yellow);font-weight:600}
+.featured{padding-block:32px 8px}
+.featured-card{display:block;margin-top:14px}
+.featured-card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px}
+.featured-card .cat{display:block;margin-top:14px}
+.featured-card .ftitle{display:block;margin-top:4px;font-size:22px;font-weight:500;letter-spacing:-.04em;line-height:1.4;color:var(--accent-ink)}
+.featured-card:hover .ftitle{text-decoration:underline;text-underline-offset:.2em}
+.featured-card .fmeta{display:block;margin-top:4px;font-size:13.5px;color:var(--ink-3)}
+.year-group{padding-top:28px}
+.year{font-size:20px;font-weight:400;font-style:italic;color:var(--ink-2);letter-spacing:-.01em;padding-bottom:8px}
+.entries{list-style:none;margin:0;padding:0}
+.entry{padding-block:18px;border-bottom:1px solid var(--line)}
+.entry .cat,.featured-card .cat{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--accent-ink)}
+.entry h3{margin-top:4px;font-size:21px;font-weight:500;line-height:1.4;letter-spacing:-.04em;text-wrap:balance}
+.entry h3 a:hover{text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:3px;text-underline-offset:.2em}
+.entry .emeta{margin-top:4px;font-size:13.5px;color:var(--ink-3)}
+.archive .after{margin-top:24px}
+@media (max-width:520px){
+  .latest-head{flex-direction:column;align-items:flex-start}
+  .numbered li{grid-template-columns:2.6rem minmax(0,1fr)}
+  .numbered .num{font-size:19px}
+}
+.star{color:var(--yellow);font-size:.8em;vertical-align:.08em}

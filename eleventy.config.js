@@ -25,6 +25,19 @@ export default function (config) {
   // 배포할 때마다 바뀌는 값. 브라우저가 예전 스타일을 붙잡지 않게 한다
   config.addGlobalData("build", () => Date.now().toString(36));
 
+  config.addFilter("head", (arr, n) => (arr || []).slice(0, n));
+  config.addFilter("pad2", (n) => String(n).padStart(2, "0"));
+  config.addFilter("byYear", (items) => {
+    const out = [];
+    for (const it of items) {
+      const y = new Date(it.date).getUTCFullYear();
+      let g = out.find((x) => x.year === y);
+      if (!g) out.push((g = { year: y, items: [] }));
+      g.items.push(it);
+    }
+    return out;
+  });
+
   config.addFilter("iso", (d) => new Date(d).toISOString().slice(0, 10));
 
   const CAT = { criticism: "비평", programme: "프로그램 글", academic: "논문" };
