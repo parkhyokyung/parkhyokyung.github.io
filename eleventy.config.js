@@ -22,6 +22,11 @@ export default function (config) {
 
   config.addFilter("subline", (data) => [data.work, data.source].filter(Boolean).join(" · "));
 
+  config.addFilter("iso", (d) => new Date(d).toISOString().slice(0, 10));
+
+  const CAT = { criticism: "비평", programme: "프로그램 글", academic: "논문" };
+  config.addFilter("catLabel", (k) => CAT[k] || "글");
+
   config.addFilter("nl2br", (s) =>
     String(s).trim().replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\n/g, "<br>")
   );

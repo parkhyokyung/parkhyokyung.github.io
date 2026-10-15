@@ -3,13 +3,10 @@ layout: base.njk
 ---
 <main class="article">
   <div class="wrap">
-    <a class="back" href="/#writing">← Writing</a>
-
     <header class="head">
-      <p class="kind">{{ categoryLabel[category] or "Writing" }}</p>
+      <p class="meta"><time datetime="{{ page.date | iso }}">{{ page.date | dot }}</time><span class="cat">{{ category | catLabel }}</span>{% if source %}<span>{{ source }}</span>{% endif %}</p>
       <h1>{{ title }}</h1>
       {% if work %}<p class="work">{{ work }}</p>{% endif %}
-      <p class="byline">박효경{% if source %}<span>{{ source }}</span>{% endif %}</p>
     </header>
 
     {% if image %}
@@ -23,10 +20,12 @@ layout: base.njk
 {{ content | safe }}
     </div>
 
-    <p class="dates">{% if seen %}관람 {{ seen | dot }}{% endif %}{% if seen %} · {% endif %}작성 {{ page.date | dot }}</p>
+    <footer class="endnote">
+      <p>{% if seen %}관람 {{ seen | dot }} · {% endif %}작성 {{ page.date | dot }}</p>
+      {% if info %}<div class="info">{{ info | nl2br | safe }}</div>{% endif %}
+      {% if link %}<p><a class="text-link" href="{{ link }}" target="_blank" rel="noopener">원문 보기{% if source %} · {{ source }}{% endif %} ↗</a></p>{% endif %}
+    </footer>
 
-    {% if info %}<div class="info">{{ info | nl2br | safe }}</div>{% endif %}
-
-    {% if link %}<p class="orig"><a href="{{ link }}" target="_blank" rel="noopener">원문 보기{% if source %} · {{ source }}{% endif %} ↗</a></p>{% endif %}
+    <a class="back" href="/#writing">← 글 목록</a>
   </div>
 </main>

@@ -3,47 +3,62 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{% if title %}{{ title }} · {% endif %}Park Hyokyung</title>
+<title>{% if title %}{{ title }} · {% endif %}박효경 Park Hyokyung</title>
 <meta name="description" content="{{ description or ((work + ' · 박효경') if work) or '박효경. 연극비평가, 드라마터그. 극장 다니는 사람.' }}">
-<meta property="og:title" content="{% if title %}{{ title }} · {% endif %}Park Hyokyung">
+<meta property="og:title" content="{% if title %}{{ title }} · {% endif %}박효경 Park Hyokyung">
 <meta property="og:description" content="{{ description or ((work + ' · 박효경') if work) or '박효경. 연극비평가, 드라마터그. 극장 다니는 사람.' }}">
 <meta property="og:image" content="{{ site.url }}{{ image or '/assets/images/stage.jpg' }}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:type" content="{% if layout == 'post.njk' %}article{% else %}website{% endif %}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;500;700&family=Noto+Serif+KR:wght@400;600&family=IBM+Plex+Sans+KR:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+<meta name="theme-color" content="#fffcf5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16140f" media="(prefers-color-scheme: dark)">
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<header class="bar">
+<header class="site-head">
   <div class="wrap">
-    <a class="mark" href="/">Park Hyokyung</a>
-    <nav aria-label="섹션">
-      <a href="/#about">About</a>
+    <a class="site-name" href="/">박효경 Park Hyokyung</a>
+    <nav class="site-nav" aria-label="섹션">
       <a href="/#writing">Writing</a>
       <a href="/#dramaturg">Dramaturg</a>
-      <a class="opt" href="/#management">Management</a>
-      <a class="opt" href="/#contact">Contact</a>
+      <a href="/#management">Management</a>
+      <a href="/#about">About</a>
     </nav>
   </div>
 </header>
 
 {{ content | safe }}
 
-<footer>
-  <div class="wrap">© Park Hyokyung · {{ "now" | year }}</div>
+<footer class="site-foot">
+  <div class="wrap"><div class="in">
+    <span>© {{ "now" | year }} 박효경</span>
+    <a class="text-link" href="mailto:hyokyung.scene@gmail.com">hyokyung.scene@gmail.com</a>
+  </div></div>
 </footer>
 
 <script>
 (function(){
-  var btn=document.getElementById('copy'); if(!btn) return;
-  btn.addEventListener('click', function(){
-    var el=document.getElementById('addr'), text=el.textContent;
-    function done(){btn.textContent='복사됨';setTimeout(function(){btn.textContent='주소 복사'},1600)}
-    function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='선택됨'}
-    try{navigator.clipboard.writeText(text).then(done,fallback)}catch(e){fallback()}
-  });
+  var btn=document.getElementById('copy');
+  if(btn){
+    btn.addEventListener('click', function(){
+      var el=document.getElementById('addr'), text=el.textContent;
+      function done(){btn.textContent='복사됨';setTimeout(function(){btn.textContent='주소 복사'},1600)}
+      function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='선택됨'}
+      try{navigator.clipboard.writeText(text).then(done,fallback)}catch(e){fallback()}
+    });
+  }
+  var chips=document.querySelectorAll('.chip');
+  if(chips.length){
+    var items=document.querySelectorAll('#writing .item'), count=document.getElementById('writing-count');
+    chips.forEach(function(c){
+      c.addEventListener('click', function(){
+        var f=c.getAttribute('data-filter'), n=0;
+        chips.forEach(function(o){o.setAttribute('aria-pressed', o===c ? 'true':'false')});
+        items.forEach(function(it){var show=(f==='all'||it.getAttribute('data-cat')===f); it.hidden=!show; if(show) n++;});
+        if(count) count.textContent=n+'편';
+      });
+    });
+  }
 })();
 </script>
 </body>
