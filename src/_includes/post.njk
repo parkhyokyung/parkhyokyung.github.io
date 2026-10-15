@@ -3,14 +3,13 @@ layout: base.njk
 ---
 <main class="article">
   <header class="head wrap">
-    <p class="eyebrow center">{{ category | catLabel }}</p>
+    <p class="meta center"><span>{{ category | catLabel }}</span><time datetime="{{ page.date | iso }}">{{ page.date | dot }}</time>{% if source %}<span>{{ source }}</span>{% endif %}</p>
     <h1>{{ title }}</h1>
     {% if work %}<p class="work">{{ work }}</p>{% endif %}
-    <p class="byline"><strong>박효경</strong><time datetime="{{ page.date | iso }}">{{ page.date | dot }}</time>{% if source %}<span>{{ source }}</span>{% endif %}</p>
   </header>
 
   {% if image %}
-  <figure class="cover wrap">
+  <figure class="cover wrap-wide">
     <img src="{{ image }}" alt="{{ image_alt or '' }}">
     {% if caption %}<figcaption>{{ caption }}</figcaption>{% endif %}
   </figure>
@@ -21,22 +20,12 @@ layout: base.njk
 {{ content | safe }}
     </div>
 
-    <div class="info-card">
+    <div class="endnote">
       <p>{% if seen %}관람 {{ seen | dot }} · {% endif %}작성 {{ page.date | dot }}</p>
       {% if info %}<p>{{ info | nl2br | safe }}</p>{% endif %}
-      {% if link %}<p><a href="{{ link }}" target="_blank" rel="noopener">원문 보기{% if source %} · {{ source }}{% endif %} ↗</a></p>{% endif %}
+      {% if link %}<p><a class="text-btn" href="{{ link }}" target="_blank" rel="noopener">원문 보기{% if source %} · {{ source }}{% endif %} ↗</a></p>{% endif %}
     </div>
-  </div>
 
-  <section class="author band">
-    <div class="wrap">
-      <p class="eyebrow center">Writer</p>
-      <p class="name">박효경</p>
-      <p>극장 다니는 사람. 연극비평가이자 드라마터그. 극단 성북동비둘기 상주 드라마터그, 공연예술비평 웹진 사이:비평 창간인.</p>
-      <div class="actions">
-        <a class="btn" href="/#writing">다른 글 보기</a>
-        <a class="btn ghost" href="/#contact">연락하기</a>
-      </div>
-    </div>
-  </section>
+    <p class="back"><a href="/#writing">← 글 목록</a></p>
+  </div>
 </main>

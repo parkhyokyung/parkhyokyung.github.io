@@ -30,42 +30,11 @@
 {{ content | safe }}
 
 <footer class="site-foot">
-  <div class="wrap-wide">
-    <div class="who">
-      <strong>박효경</strong>
-      <p>극장 다니는 사람. 연극비평가이자 드라마터그. 극단 성북동비둘기 상주 드라마터그, 공연예술비평 웹진 사이:비평 창간인.</p>
-    </div>
-    <div>
-      <h4>Site</h4>
-      <ul>
-        <li><a href="/#writing">Writing</a></li>
-        <li><a href="/#dramaturg">Dramaturg</a></li>
-        <li><a href="/#management">Management</a></li>
-        <li><a href="/#about">About</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Elsewhere</h4>
-      <ul>
-        <li><a href="https://saicriticism.com" target="_blank" rel="noopener">사이:비평 ↗</a></li>
-        <li><a href="https://www.beedoolkeetheatre.com" target="_blank" rel="noopener">성북동비둘기 ↗</a></li>
-        <li><a href="mailto:hyokyung.scene@gmail.com">이메일</a></li>
-      </ul>
-    </div>
-    <p class="legal">© {{ "now" | year }} 박효경</p>
-  </div>
+  <div class="wrap-wide">© {{ "now" | year }} 박효경</div>
 </footer>
 
 <script>
 (function(){
-  document.querySelectorAll('[data-copy]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var el=document.getElementById(btn.getAttribute('data-copy')), text=el.textContent.trim(), label=btn.textContent;
-      function done(){btn.textContent='복사됨';setTimeout(function(){btn.textContent=label},1600)}
-      function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='선택됨'}
-      try{navigator.clipboard.writeText(text).then(done,fallback)}catch(e){fallback()}
-    });
-  });
   var chips=document.querySelectorAll('.chip');
   if(!chips.length) return;
   var items=[].slice.call(document.querySelectorAll('#writing .list .item'));
