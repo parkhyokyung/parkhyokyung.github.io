@@ -10,13 +10,13 @@
 <meta property="og:image" content="{{ site.url }}{{ image or '/assets/images/stage.jpg' }}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:type" content="{% if layout == 'post.njk' %}article{% else %}website{% endif %}">
-<meta name="theme-color" content="#fffcf5" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#16140f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121211" media="(prefers-color-scheme: dark)">
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
 <header class="site-head">
-  <div class="wrap">
+  <div class="wrap-wide">
     <a class="site-name" href="/">박효경 Park Hyokyung</a>
     <nav class="site-nav" aria-label="섹션">
       <a href="/#writing">Writing</a>
@@ -30,35 +30,53 @@
 {{ content | safe }}
 
 <footer class="site-foot">
-  <div class="wrap"><div class="in">
-    <span>© {{ "now" | year }} 박효경</span>
-    <a class="text-link" href="mailto:hyokyung.scene@gmail.com">hyokyung.scene@gmail.com</a>
-  </div></div>
+  <div class="wrap-wide">
+    <div class="who">
+      <strong>박효경</strong>
+      <p>극장 다니는 사람. 연극비평가이자 드라마터그. 극단 성북동비둘기 상주 드라마터그, 공연예술비평 웹진 사이:비평 창간인.</p>
+    </div>
+    <div>
+      <h4>Site</h4>
+      <ul>
+        <li><a href="/#writing">Writing</a></li>
+        <li><a href="/#dramaturg">Dramaturg</a></li>
+        <li><a href="/#management">Management</a></li>
+        <li><a href="/#about">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Elsewhere</h4>
+      <ul>
+        <li><a href="https://saicriticism.com" target="_blank" rel="noopener">사이:비평 ↗</a></li>
+        <li><a href="https://www.beedoolkeetheatre.com" target="_blank" rel="noopener">성북동비둘기 ↗</a></li>
+        <li><a href="mailto:hyokyung.scene@gmail.com">이메일</a></li>
+      </ul>
+    </div>
+    <p class="legal">© {{ "now" | year }} 박효경. 글과 사진의 저작권은 각 저작자에게 있습니다.</p>
+  </div>
 </footer>
 
 <script>
 (function(){
-  var btn=document.getElementById('copy');
-  if(btn){
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
     btn.addEventListener('click', function(){
-      var el=document.getElementById('addr'), text=el.textContent;
-      function done(){btn.textContent='복사됨';setTimeout(function(){btn.textContent='주소 복사'},1600)}
+      var el=document.getElementById(btn.getAttribute('data-copy')), text=el.textContent.trim(), label=btn.textContent;
+      function done(){btn.textContent='복사됨';setTimeout(function(){btn.textContent=label},1600)}
       function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='선택됨'}
       try{navigator.clipboard.writeText(text).then(done,fallback)}catch(e){fallback()}
     });
-  }
+  });
   var chips=document.querySelectorAll('.chip');
-  if(chips.length){
-    var items=document.querySelectorAll('#writing .item'), count=document.getElementById('writing-count');
-    chips.forEach(function(c){
-      c.addEventListener('click', function(){
-        var f=c.getAttribute('data-filter'), n=0;
-        chips.forEach(function(o){o.setAttribute('aria-pressed', o===c ? 'true':'false')});
-        items.forEach(function(it){var show=(f==='all'||it.getAttribute('data-cat')===f); it.hidden=!show; if(show) n++;});
-        if(count) count.textContent=n+'편';
-      });
-    });
+  if(!chips.length) return;
+  var items=document.querySelectorAll('#writing .item');
+  function apply(f){
+    chips.forEach(function(o){o.setAttribute('aria-pressed', o.getAttribute('data-filter')===f ? 'true':'false')});
+    items.forEach(function(it){it.hidden=!(f==='all'||it.getAttribute('data-cat')===f)});
   }
+  chips.forEach(function(c){c.addEventListener('click', function(){apply(c.getAttribute('data-filter'))})});
+  document.querySelectorAll('[data-set-filter]').forEach(function(a){
+    a.addEventListener('click', function(){apply(a.getAttribute('data-set-filter'))});
+  });
 })();
 </script>
 </body>
