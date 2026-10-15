@@ -33,7 +33,34 @@
 {{ content | safe }}
 
 <footer class="site-foot">
-  <div class="wrap-wide">© {{ "now" | year }} 박효경</div>
+  <div class="wrap-wide">
+    <div class="foot-top">
+      <div class="foot-me">
+        <p class="fname">박효경 Park Hyokyung</p>
+        <p class="ftag">극장 다니는 사람</p>
+        <p class="fmail"><a href="mailto:hyokyung.scene@gmail.com"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><rect x="2.5" y="4.5" width="15" height="11" rx="2"/><path d="M3 6l7 5 7-5"/></svg>hyokyung.scene@gmail.com</a></p>
+      </div>
+      <nav class="foot-links" aria-label="바닥글">
+        <div>
+          <h2>Read</h2>
+          <ul>
+            <li><a href="/writing/">글</a></li>
+            <li><a href="/#dramaturg">드라마터그</a></li>
+            <li><a href="/#management">매니지먼트</a></li>
+            <li><a href="/#about">어바웃</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Elsewhere</h2>
+          <ul>
+            <li><a href="https://saicriticism.com" target="_blank" rel="noopener">사이:비평 <span class="ext">↗</span></a></li>
+            <li><a href="https://www.beedoolkeetheatre.com" target="_blank" rel="noopener">성북동비둘기 <span class="ext">↗</span></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <p class="foot-legal">© {{ "now" | year }} 박효경</p>
+  </div>
 </footer>
 
 <script>
