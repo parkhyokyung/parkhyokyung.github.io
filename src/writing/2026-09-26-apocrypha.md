@@ -1,6 +1,6 @@
 ---
 title: "잔인하구나, 산다는 건"
-slug: oegyeong
+slug: apocrypha
 category: criticism
 date: 2026-09-26
 work: "극단 코너스톤 〈외경〉"

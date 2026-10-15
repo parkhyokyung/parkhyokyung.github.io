@@ -6,4 +6,5 @@ date: 2025-12-20
 work: "(주)엠비제트컴퍼니 〈빵야〉"
 source: "한국문화예술위원회"
 link: "https://blog.naver.com/arko_korea/224177115901"
+onsite: false
 ---
