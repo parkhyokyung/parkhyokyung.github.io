@@ -5,6 +5,9 @@ title: 글
 description: 박효경의 비평, 프로그램 글, 논문
 ---
 {%- set all = collections.writing -%}
+{%- set nCrit = (all | byCategory("criticism")).length -%}
+{%- set nProg = (all | byCategory("programme")).length -%}
+{%- set nAcad = (all | byCategory("academic")).length -%}
 {%- set featured = null -%}
 {%- for it in all -%}{%- if not featured and it.data.image -%}{%- set featured = it -%}{%- endif -%}{%- endfor -%}
 <main class="archive wrap">
@@ -13,10 +16,10 @@ description: 박효경의 비평, 프로그램 글, 논문
     <h1>글</h1>
     <p class="lede">극장에서 본 것을 쓴 비평, 공연 프로그램에 실은 글, 논문. 최신순으로 보거나 분류별로 골라 본다.</p>
     <div class="pills" role="group" aria-label="분류">
-      <button class="pill" type="button" data-filter="all" aria-pressed="true">전체</button>
-      <button class="pill" type="button" data-filter="criticism" aria-pressed="false">비평</button>
-      <button class="pill" type="button" data-filter="programme" aria-pressed="false">프로그램 글</button>
-      <button class="pill" type="button" data-filter="academic" aria-pressed="false">논문</button>
+      <button class="pill" type="button" data-filter="all" aria-pressed="true">전체 <span class="n">{{ all.length }}</span></button>
+      <button class="pill" type="button" data-filter="criticism" aria-pressed="false">비평 <span class="n">{{ nCrit }}</span></button>
+      <button class="pill" type="button" data-filter="programme" aria-pressed="false">프로그램 글 <span class="n">{{ nProg }}</span></button>
+      <button class="pill" type="button" data-filter="academic" aria-pressed="false">논문 <span class="n">{{ nAcad }}</span></button>
     </div>
   </header>
 
@@ -41,7 +44,7 @@ description: 박효경의 비평, 프로그램 글, 논문
       <li class="entry" data-cat="{{ item.data.category }}">
         <p class="cat">{{ item.data.category | catLabel }}</p>
         <h3>{% if featured and item.page.inputPath == featured.page.inputPath %}<span class="star" aria-label="추천 글">★</span> {% endif %}{% if item.data.hasPage %}<a href="{{ item.url }}">{{ item.data.title }}</a>{% elif item.data.link %}<a href="{{ item.data.link }}" target="_blank" rel="noopener">{{ item.data.title }}<span class="ext" aria-label="외부 링크"> ↗</span></a>{% else %}{{ item.data.title }}{% endif %}</h3>
-        <p class="emeta">{{ item.data | subline }}</p>
+        <p class="emeta"><time datetime="{{ item.date | iso }}">{{ item.date | dot }}</time>{%- set sl = item.data | subline %}{% if sl %} · {{ sl }}{% endif %}</p>
       </li>
     {%- endfor %}
     </ul>
