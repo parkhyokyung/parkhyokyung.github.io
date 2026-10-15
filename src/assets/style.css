@@ -190,3 +190,9 @@ ul{padding:0;list-style:none}
   .numbered .num{font-size:19px}
 }
 .star{color:var(--yellow);font-size:.8em;vertical-align:.08em}
+.numbered .rows{margin-top:12px}
+.numbered .dim{font-weight:400;color:var(--ink-3)}
+.email{padding-top:36px}
+.email a{font-size:clamp(20px,2.6vw,24px);font-weight:500;letter-spacing:-.02em;border-bottom:2px solid var(--yellow);padding-bottom:2px;overflow-wrap:anywhere}
+.email a:hover{color:var(--ink-2)}
+.latest + .latest{border-top:0}
