@@ -15,22 +15,16 @@ permalink: /
   </section>
 
   <section class="latest wrap-wide" id="writing">
-    <div class="sec-head">
+    <div class="sec-head stack">
       <p class="kicker">Latest writing</p>
-      <a class="more-link" href="/writing/">모두 보기 →</a>
+      <p class="sec-lede">극장에서 본 것을 쓴 비평, 공연 프로그램에 실은 글, 논문.</p>
+      <a class="more-link" href="/writing/">모두 보기</a>
     </div>
-    <ol class="numbered">
-{%- for item in collections.writing | head(4) %}
-      <li>
-        <span class="num">{{ loop.index | pad2 }}</span>
-        <div>
-          <p class="meta"><span>{{ item.date | year }}</span><span>{{ item.data.category | catLabel }}</span>{% if item.data.source %}<span>{{ item.data.source }}</span>{% endif %}</p>
-          <h3>{% if item.data.hasPage %}<a href="{{ item.url }}">{{ item.data.title }}</a>{% elif item.data.link %}<a href="{{ item.data.link }}" target="_blank" rel="noopener">{{ item.data.title }}<span class="ext" aria-label="외부 링크"> ↗</span></a>{% else %}{{ item.data.title }}{% endif %}</h3>
-          {% if item.data.work %}<p class="dek">{{ item.data.work }}</p>{% endif %}
-        </div>
-      </li>
+    <ul class="titles">
+{%- for item in collections.writing | head(6) %}
+      <li>{% if item.data.hasPage %}<a href="{{ item.url }}">{{ item.data.title }}</a>{% elif item.data.link %}<a href="{{ item.data.link }}" target="_blank" rel="noopener">{{ item.data.title }}<span class="ext" aria-label="외부 링크"> ↗</span></a>{% else %}<span>{{ item.data.title }}</span>{% endif %}</li>
 {%- endfor %}
-    </ol>
+    </ul>
   </section>
 
   <section class="latest wrap-wide tint" id="dramaturg">
@@ -42,42 +36,42 @@ permalink: /
       <li>
         <div>
           <p class="meta"><span>2026.04</span><span>대학로예술극장 대극장</span></p>
-          <h3><a href="https://www.beedoolkeetheatre.com/ko/productions/gulliverse-3" target="_blank" rel="noopener">〈걸리버스 3〉<span class="ext" aria-label="외부 링크"> ↗</span></a></h3>
+          <h3><a href="https://www.beedoolkeetheatre.com/ko/productions/gulliverse-3" target="_blank" rel="noopener">〈걸리버스 3〉<span class="ext" aria-label="외부 링크"> ↗</span></a></h3>
           <p class="dek">성북동비둘기</p>
         </div>
       </li>
       <li>
         <div>
           <p class="meta"><span>2025.12</span><span>뚝섬플레이스</span></p>
-          <h3><a href="https://www.beedoolkeetheatre.com/ko/productions/the-red-peter-confession" target="_blank" rel="noopener">〈빨간 피 터지는 고백〉<span class="ext" aria-label="외부 링크"> ↗</span></a></h3>
+          <h3><a href="https://www.beedoolkeetheatre.com/ko/productions/the-red-peter-confession" target="_blank" rel="noopener">〈빨간 피 터지는 고백〉<span class="ext" aria-label="외부 링크"> ↗</span></a></h3>
           <p class="dek">성북동비둘기</p>
         </div>
       </li>
       <li>
         <div>
           <p class="meta"><span>2025.10</span><span>뚝섬플레이스</span></p>
-          <h3><a href="https://www.beedoolkeetheatre.com/ko/productions/the-lover" target="_blank" rel="noopener">〈The Lover 정부〉<span class="ext" aria-label="외부 링크"> ↗</span></a></h3>
+          <h3><a href="https://www.beedoolkeetheatre.com/ko/productions/the-lover" target="_blank" rel="noopener">〈The Lover 정부〉<span class="ext" aria-label="외부 링크"> ↗</span></a></h3>
           <p class="dek">성북동비둘기</p>
         </div>
       </li>
       <li>
         <div>
           <p class="meta"><span>2025.08</span><span>성수아트홀</span></p>
-          <h3><a href="https://www.beedoolkeetheatre.com/ko/productions/the-house-of-alba-(2025)" target="_blank" rel="noopener">〈알바의집, 배로나르다〉<span class="ext" aria-label="외부 링크"> ↗</span></a></h3>
+          <h3><a href="https://www.beedoolkeetheatre.com/ko/productions/the-house-of-alba-(2025)" target="_blank" rel="noopener">〈알바의집, 배로나르다〉<span class="ext" aria-label="외부 링크"> ↗</span></a></h3>
           <p class="dek">성북동비둘기</p>
         </div>
       </li>
       <li>
         <div>
           <p class="meta"><span>2025.06</span><span>성수아트홀</span></p>
-          <h3><a href="https://www.beedoolkeetheatre.com/ko/productions/horror-is-show" target="_blank" rel="noopener">〈호러이쇼 Horror Is Show〉<span class="ext" aria-label="외부 링크"> ↗</span></a></h3>
+          <h3><a href="https://www.beedoolkeetheatre.com/ko/productions/horror-is-show" target="_blank" rel="noopener">〈호러이쇼 Horror Is Show〉<span class="ext" aria-label="외부 링크"> ↗</span></a></h3>
           <p class="dek">성북동비둘기</p>
         </div>
       </li>
       <li>
         <div>
           <p class="meta"><span>2025.03</span><span>대학로예술극장 대극장</span></p>
-          <h3><a href="https://www.beedoolkeetheatre.com/ko/productions/gullivers-2" target="_blank" rel="noopener">〈걸리버스 2〉<span class="ext" aria-label="외부 링크"> ↗</span></a></h3>
+          <h3><a href="https://www.beedoolkeetheatre.com/ko/productions/gullivers-2" target="_blank" rel="noopener">〈걸리버스 2〉<span class="ext" aria-label="외부 링크"> ↗</span></a></h3>
           <p class="dek">성북동비둘기</p>
         </div>
       </li>

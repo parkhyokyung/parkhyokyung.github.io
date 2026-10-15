@@ -37,14 +37,16 @@
       </button>
     </div>
   </div>
-  <div class="panel" id="panel" hidden>
+  <div class="panel" id="panel" hidden data-mode="menu">
     <div class="wrap-wide">
+      <div class="panel-search">
       <label class="search-field">
         <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
         <input type="search" id="q" placeholder="글 제목으로 검색" autocomplete="off" aria-label="글 검색">
       </label>
       <ul class="results" id="results" hidden></ul>
       <p class="no-hit" id="no-hit" hidden>찾는 글이 없습니다.</p>
+      </div>
       <nav class="panel-nav" aria-label="메뉴">
         <a href="/writing/">Writing</a>
         <a href="/#dramaturg">Dramaturg</a>
@@ -125,17 +127,23 @@
     out.hidden=hits.length===0;
     nohit.hidden=hits.length>0;
   }
-  function setOpen(open, focusSearch){
+  function setOpen(open, mode){
     panel.hidden=!open;
-    [bs,bm].forEach(function(b){if(b) b.setAttribute('aria-expanded', open?'true':'false')});
-    if(open && focusSearch && q) q.focus();
+    if(open) panel.setAttribute('data-mode', mode);
+    if(bs) bs.setAttribute('aria-expanded', (open && mode==='search')?'true':'false');
+    if(bm) bm.setAttribute('aria-expanded', (open && mode==='menu')?'true':'false');
+    if(open && mode==='search' && q) q.focus();
     if(!open){ if(q) q.value=''; render(''); }
   }
-  if(bs) bs.addEventListener('click', function(){ setOpen(panel.hidden, true) });
-  if(bm) bm.addEventListener('click', function(){ setOpen(panel.hidden, false) });
+  function toggle(mode){
+    var same = !panel.hidden && panel.getAttribute('data-mode')===mode;
+    setOpen(!same, mode);
+  }
+  if(bs) bs.addEventListener('click', function(){ toggle('search') });
+  if(bm) bm.addEventListener('click', function(){ toggle('menu') });
   if(q) q.addEventListener('input', function(){ render(q.value) });
-  panel.addEventListener('click', function(e){ if(e.target.closest('a')) setOpen(false) });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && !panel.hidden) setOpen(false) });
+  panel.addEventListener('click', function(e){ if(e.target.closest('a')) setOpen(false,'menu') });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && !panel.hidden) setOpen(false,'menu') });
 })();
 </script>
 </body>
