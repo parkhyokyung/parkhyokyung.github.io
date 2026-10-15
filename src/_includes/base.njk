@@ -11,7 +11,7 @@
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:type" content="{% if layout == 'post.njk' %}article{% else %}website{% endif %}">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#121211" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#121210" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300..700&display=swap">
@@ -27,8 +27,37 @@
       <a href="/#management">Management</a>
       <a href="/#about">About</a>
     </nav>
+    <div class="head-tools">
+      <button class="icon-btn" type="button" id="btn-search" aria-expanded="false" aria-controls="panel" aria-label="검색">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      </button>
+      <button class="icon-btn only-narrow" type="button" id="btn-menu" aria-expanded="false" aria-controls="panel" aria-label="메뉴">
+        <svg viewBox="0 0 20 20" aria-hidden="true" class="i-open"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+        <svg viewBox="0 0 20 20" aria-hidden="true" class="i-close"><path d="M5 5l10 10M15 5L5 15"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="panel" id="panel" hidden>
+    <div class="wrap-wide">
+      <label class="search-field">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+        <input type="search" id="q" placeholder="글 제목으로 검색" autocomplete="off" aria-label="글 검색">
+      </label>
+      <ul class="results" id="results" hidden></ul>
+      <p class="no-hit" id="no-hit" hidden>찾는 글이 없습니다.</p>
+      <nav class="panel-nav" aria-label="메뉴">
+        <a href="/writing/">Writing</a>
+        <a href="/#dramaturg">Dramaturg</a>
+        <a href="/#management">Management</a>
+        <a href="/#about">About</a>
+      </nav>
+    </div>
   </div>
 </header>
+
+<script id="search-data" type="application/json">[
+{%- for item in collections.writing %}{% if not loop.first %},{% endif %}{"t":{{ item.data.title | dump | safe }},"u":{{ (item.url if item.data.hasPage else (item.data.link or "/writing/")) | dump | safe }},"c":{{ (item.data.category | catLabel) | dump | safe }},"w":{{ (item.data.work or "") | dump | safe }},"y":"{{ item.date | year }}"}{% endfor %}
+]</script>
 
 {{ content | safe }}
 
@@ -38,25 +67,16 @@
       <div class="foot-me">
         <p class="fname">박효경 Park Hyokyung</p>
         <p class="ftag">극장 다니는 사람</p>
-        <p class="fmail"><a href="mailto:hyokyung.scene@gmail.com"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><rect x="2.5" y="4.5" width="15" height="11" rx="2"/><path d="M3 6l7 5 7-5"/></svg>hyokyung.scene@gmail.com</a></p>
+        <p class="fmail"><a href="mailto:hyokyung.scene@gmail.com"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2"/><path d="M3 6l7 5 7-5"/></svg><span>hyokyung.scene@gmail.com</span></a></p>
       </div>
       <nav class="foot-links" aria-label="바닥글">
-        <div>
-          <h2>Read</h2>
-          <ul>
-            <li><a href="/writing/">글</a></li>
-            <li><a href="/#dramaturg">드라마터그</a></li>
-            <li><a href="/#management">매니지먼트</a></li>
-            <li><a href="/#about">어바웃</a></li>
-          </ul>
-        </div>
-        <div>
-          <h2>Elsewhere</h2>
-          <ul>
-            <li><a href="https://saicriticism.com" target="_blank" rel="noopener">사이:비평 <span class="ext">↗</span></a></li>
-            <li><a href="https://www.beedoolkeetheatre.com" target="_blank" rel="noopener">성북동비둘기 <span class="ext">↗</span></a></li>
-          </ul>
-        </div>
+        <h2>Read</h2>
+        <ul>
+          <li><a href="/writing/">Writing</a></li>
+          <li><a href="/#dramaturg">Dramaturg</a></li>
+          <li><a href="/#management">Management</a></li>
+          <li><a href="/#about">About</a></li>
+        </ul>
       </nav>
     </div>
     <p class="foot-legal">© {{ "now" | year }} 박효경</p>
@@ -65,21 +85,57 @@
 
 <script>
 (function(){
+  /* 글 분류 버튼 (전체 글 페이지) */
   var pills=document.querySelectorAll('.pill');
-  if(!pills.length) return;
-  var entries=document.querySelectorAll('.entry'), groups=document.querySelectorAll('[data-group]');
-  var featured=document.querySelector('.featured'), only=document.querySelectorAll('[data-only]');
-  function apply(f){
-    pills.forEach(function(p){p.setAttribute('aria-pressed', p.getAttribute('data-filter')===f ? 'true':'false')});
-    entries.forEach(function(e){e.hidden=!(f==='all'||e.getAttribute('data-cat')===f)});
-    groups.forEach(function(g){g.hidden=!g.querySelector('.entry:not([hidden])')});
-    if(featured) featured.hidden=!(f==='all'||featured.getAttribute('data-cat')===f);
-    only.forEach(function(el){el.hidden=el.getAttribute('data-only')!==f});
-    try{history.replaceState(null,'', f==='all' ? location.pathname : '#'+f)}catch(e){}
+  if(pills.length){
+    var entries=document.querySelectorAll('.entry'), groups=document.querySelectorAll('[data-group]');
+    var feat=document.querySelector('.featured'), only=document.querySelectorAll('[data-only]');
+    var apply=function(f){
+      pills.forEach(function(p){p.setAttribute('aria-pressed', p.getAttribute('data-filter')===f ? 'true':'false')});
+      entries.forEach(function(e){e.hidden=!(f==='all'||e.getAttribute('data-cat')===f)});
+      groups.forEach(function(g){g.hidden=!g.querySelector('.entry:not([hidden])')});
+      if(feat) feat.hidden=!(f==='all'||feat.getAttribute('data-cat')===f);
+      only.forEach(function(el){el.hidden=el.getAttribute('data-only')!==f});
+      try{history.replaceState(null,'', f==='all' ? location.pathname : '#'+f)}catch(e){}
+    };
+    pills.forEach(function(p){p.addEventListener('click', function(){apply(p.getAttribute('data-filter'))})});
+    var h=location.hash.replace('#','');
+    apply(['criticism','programme','academic'].indexOf(h)>-1 ? h : 'all');
   }
-  pills.forEach(function(p){p.addEventListener('click', function(){apply(p.getAttribute('data-filter'))})});
-  var h=location.hash.replace('#','');
-  apply(['criticism','programme','academic'].indexOf(h)>-1 ? h : 'all');
+
+  /* 펼침 메뉴와 검색 */
+  var panel=document.getElementById('panel'), q=document.getElementById('q');
+  var bs=document.getElementById('btn-search'), bm=document.getElementById('btn-menu');
+  var out=document.getElementById('results'), nohit=document.getElementById('no-hit');
+  if(!panel) return;
+  var data=[];
+  try{data=JSON.parse(document.getElementById('search-data').textContent)}catch(e){}
+
+  function render(term){
+    if(!out) return;
+    term=(term||'').trim().toLowerCase();
+    if(!term){ out.hidden=true; out.innerHTML=''; nohit.hidden=true; return; }
+    var hits=data.filter(function(d){
+      return (d.t+' '+d.w+' '+d.c+' '+d.y).toLowerCase().indexOf(term)>-1;
+    }).slice(0,8);
+    out.innerHTML=hits.map(function(d){
+      var esc=function(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')};
+      return '<li><a href="'+esc(d.u)+'"><span class="r-meta">'+esc(d.y)+' · '+esc(d.c)+'</span><span class="r-title">'+esc(d.t)+'</span></a></li>';
+    }).join('');
+    out.hidden=hits.length===0;
+    nohit.hidden=hits.length>0;
+  }
+  function setOpen(open, focusSearch){
+    panel.hidden=!open;
+    [bs,bm].forEach(function(b){if(b) b.setAttribute('aria-expanded', open?'true':'false')});
+    if(open && focusSearch && q) q.focus();
+    if(!open){ if(q) q.value=''; render(''); }
+  }
+  if(bs) bs.addEventListener('click', function(){ setOpen(panel.hidden, true) });
+  if(bm) bm.addEventListener('click', function(){ setOpen(panel.hidden, false) });
+  if(q) q.addEventListener('input', function(){ render(q.value) });
+  panel.addEventListener('click', function(e){ if(e.target.closest('a')) setOpen(false) });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && !panel.hidden) setOpen(false) });
 })();
 </script>
 </body>

@@ -71,7 +71,31 @@ ul{padding:0;list-style:none}
   border-bottom:1px solid var(--line);
 }
 @supports not (backdrop-filter: blur(1px)){.site-head{background:var(--paper)}}
-.site-head .wrap-wide{display:flex;align-items:center;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;padding-block:16px}
+.site-head .wrap-wide{display:flex;align-items:center;gap:10px 24px;padding-block:14px}
+.site-nav{margin-left:auto}
+.head-tools{display:flex;align-items:center;gap:2px;margin-left:16px}
+.icon-btn{display:grid;place-items:center;width:38px;height:38px;padding:0;border:0;border-radius:50%;background:none;color:var(--ink-2);cursor:pointer}
+.icon-btn:hover{color:var(--ink);background:var(--band)}
+.icon-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.icon-btn .i-close{display:none}
+.icon-btn[aria-expanded="true"] .i-close{display:block}
+.icon-btn[aria-expanded="true"] .i-open{display:none}
+.panel{border-top:1px solid var(--line);background:var(--paper);max-height:calc(100dvh - 60px);overflow-y:auto}
+.panel .wrap-wide{display:block;padding-block:18px 24px}
+.search-field{display:flex;align-items:center;gap:10px;padding:11px 14px;border:1px solid var(--line);border-radius:999px;background:var(--band)}
+.search-field svg{width:18px;height:18px;flex:none;fill:none;stroke:var(--ink-3);stroke-width:1.6;stroke-linecap:round}
+.search-field input{flex:1;min-width:0;font:inherit;font-size:15.5px;color:var(--ink);background:none;border:0;outline:none}
+.search-field input::placeholder{color:var(--ink-3)}
+.results{margin-top:10px;display:grid}
+.results a{display:block;padding:11px 14px;border-radius:10px}
+.results a:hover{background:var(--band)}
+.r-meta{display:block;font-size:12px;color:var(--ink-3)}
+.r-title{display:block;margin-top:2px;font-size:16px;font-weight:500;letter-spacing:-.03em}
+.no-hit{margin-top:14px;padding-left:14px;font-size:14.5px;color:var(--ink-3)}
+.panel-nav{display:grid;gap:2px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.panel-nav a{padding:10px 14px;border-radius:10px;font-size:17px;font-weight:500;letter-spacing:-.02em}
+.panel-nav a:hover{background:var(--band)}
+@media (min-width:761px){.only-narrow{display:none}.panel-nav{display:none}}
 .site-name{font-weight:700;font-size:15.5px;letter-spacing:-.02em}
 .site-nav{display:flex;flex-wrap:wrap;gap:4px 22px;font-size:14.5px;color:var(--ink-3)}
 .site-nav a:hover{color:var(--ink)}
@@ -128,16 +152,17 @@ ul{padding:0;list-style:none}
 .email a:hover{color:var(--ink-2)}
 
 /* footer, after the Quiet theme: name, tagline, email, link columns */
-.site-foot{background:var(--band);border-top:1px solid var(--line)}
+.site-foot{background:var(--paper);border-top:1px solid var(--line)}
 .site-foot .wrap-wide{padding-block:clamp(40px,5vw,60px) 36px}
-.foot-top{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px clamp(24px,5vw,56px)}
+.foot-top{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:32px clamp(24px,5vw,56px)}
 .fname{font-size:clamp(22px,2.6vw,26px);font-weight:500;letter-spacing:-.04em;line-height:1.3}
 .ftag{margin-top:6px;font-size:15.5px;color:var(--ink-2)}
-.fmail{margin-top:16px}
-.fmail a{display:inline-flex;align-items:center;gap:8px;font-size:15px;color:var(--ink);border-bottom:2px solid var(--yellow);padding-bottom:2px;overflow-wrap:anywhere}
-.fmail a:hover{color:var(--ink-2)}
-.fmail svg{width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-.foot-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.fmail{margin-top:14px}
+.fmail a{display:inline-flex;align-items:center;gap:8px;font-size:15.5px;color:var(--ink-2)}
+.fmail a:hover{color:var(--ink)}
+.fmail span{border-bottom:2px solid var(--yellow);padding-bottom:2px;overflow-wrap:anywhere}
+.fmail svg{width:16px;height:16px;flex:none;fill:none;stroke:var(--ink-3);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.foot-links{align-self:start}
 .foot-links h2{font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--label)}
 .foot-links ul{margin-top:12px;display:grid;gap:9px;font-size:15px;color:var(--ink-2)}
 .foot-links a:hover{color:var(--ink)}
@@ -189,6 +214,8 @@ ul{padding:0;list-style:none}
 .back a:hover{color:var(--ink)}
 
 @media (max-width:760px){
+  .site-nav{display:none}
+  .site-name{margin-right:auto}
   .opening{grid-template-columns:minmax(0,1fr);align-items:start}
   .opening-text{padding-bottom:0}
 }
