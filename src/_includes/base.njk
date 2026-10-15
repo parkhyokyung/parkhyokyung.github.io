@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{% if title %}{{ title }} · {% endif %}Park Hyokyung</title>
+<meta name="description" content="{{ description or '박효경. 연극비평가, 드라마터그. 극장 다니는 사람.' }}">
+<meta property="og:title" content="{% if title %}{{ title }} · {% endif %}Park Hyokyung">
+<meta property="og:description" content="{{ description or '박효경. 연극비평가, 드라마터그. 극장 다니는 사람.' }}">
+<meta property="og:image" content="{{ image or '/assets/images/stage.jpg' }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;500;700&family=Noto+Serif+KR:wght@400;600&family=IBM+Plex+Sans+KR:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="/">Park Hyokyung</a>
+    <nav aria-label="섹션">
+      <a href="/#about">About</a>
+      <a href="/#writing">Writing</a>
+      <a href="/#dramaturg">Dramaturg</a>
+      <a class="opt" href="/#management">Management</a>
+      <a class="opt" href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+{{ content | safe }}
+
+<footer>
+  <div class="wrap">© Park Hyokyung · {{ "now" | year }}</div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('copy'); if(!btn) return;
+  btn.addEventListener('click', function(){
+    var el=document.getElementById('addr'), text=el.textContent;
+    function done(){btn.textContent='복사됨';setTimeout(function(){btn.textContent='주소 복사'},1600)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='선택됨'}
+    try{navigator.clipboard.writeText(text).then(done,fallback)}catch(e){fallback()}
+  });
+})();
+</script>
+</body>
+</html>

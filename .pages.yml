@@ -1,0 +1,86 @@
+# Pages CMS 설정. app.pagescms.org에 GitHub 계정으로 로그인하면 이 설정대로 글쓰기 화면이 열립니다.
+
+media:
+  input: src/assets/images
+  output: /assets/images
+
+content:
+  - name: writing
+    label: 글
+    type: collection
+    path: src/writing
+    format: yaml-frontmatter
+    exclude: [writing.11tydata.js]
+    filename: "{year}-{month}-{day}-{fields.slug}.md"
+    view:
+      fields: [title, category, date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: 제목
+        type: string
+        required: true
+        description: 목록에서 ｢ ｣가 자동으로 붙습니다.
+      - name: slug
+        label: 주소용 영문 이름
+        type: string
+        required: true
+        description: 영문 소문자와 하이픈만. 글 주소가 됩니다. 예) gullivers-3 → 사이트주소/writing/gullivers-3/ . 처음 만들 때만 적용됩니다.
+      - name: category
+        label: 분류
+        type: select
+        required: true
+        options:
+          values:
+            - { name: criticism, label: 비평 }
+            - { name: programme, label: 프로그램 글 }
+            - { name: academic, label: 논문 }
+      - name: date
+        label: 작성일
+        type: date
+        required: true
+        description: 목록 순서와 글 끝 "작성" 날짜가 됩니다.
+        options:
+          format: yyyy-MM-dd
+      - name: work
+        label: 작품·단체
+        type: string
+        description: 예) 극단 코너스톤 〈외경〉
+      - name: source
+        label: 실린 매체
+        type: string
+        description: 예) 사이:비평, 『한국연극』 2026년 1월호
+      - name: link
+        label: 원문 주소
+        type: string
+        description: 본문을 비우고 원문 주소만 적으면 목록에서 원문으로 바로 연결됩니다.
+      - name: seen
+        label: 관람일
+        type: date
+        default: ""
+        options:
+          format: yyyy-MM-dd
+      - name: image
+        label: 대표 사진
+        type: image
+      - name: image_alt
+        label: 사진 설명
+        type: string
+        description: 화면을 볼 수 없는 독자에게 읽어 주는 문장. 무대 위에서 무엇이 보이는지 적습니다.
+      - name: caption
+        label: 사진 크레디트
+        type: string
+        description: 예) 사진 제공 극단 코너스톤
+      - name: info
+        label: 공연 정보
+        type: text
+        description: 글 끝에 붙는 정보. 줄바꿈이 그대로 나옵니다.
+      - name: body
+        label: 본문
+        type: rich-text
+        options:
+          format: markdown
