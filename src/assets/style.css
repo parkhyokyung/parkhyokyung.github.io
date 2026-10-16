@@ -11,7 +11,7 @@
   --ink-3:#9b9b94;
   --line:#e0dcc8;              /* the theme's khaki hairline, used for rules and underlines */
   --yellow:#f6cc5e;
-  --yellow-ink:#d9a520;        /* 글씨에 쓰는 노랑. 흰 바탕에서 읽히게 한 톤 내렸다 */            /* Prose yellow: the one point of colour */
+  --yellow-ink:#d9a520;        /* 글씨에 쓰는 노랑. 흰 바탕에서 읽히게 한 톤 내렸다 */
   --gold:#fcd500;              /* the brighter highlight yellow */
   --on-yellow:#060606;
   --label:#6c6c6c;
@@ -106,11 +106,11 @@ ul{padding:0;list-style:none}
 .site-nav a:hover{color:var(--ink)}
 
 /* opening */
-.opening{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,56px);align-items:end;padding-block:clamp(20px,3vw,36px) clamp(56px,8vw,96px)}
+.opening{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,5vw,56px);align-items:center;padding-block:clamp(28px,4vw,52px) clamp(36px,5vw,64px)}
 .hero img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:6px}
 .hero figcaption{margin-top:10px;font-size:12px;color:var(--ink-3)}
-.opening h1{margin-top:16px;font-weight:500;font-size:clamp(34px,4.2vw,50px);line-height:1.26;letter-spacing:-.05em;text-wrap:balance}
-.opening-text{padding-bottom:28px}
+.opening h1{font-weight:500;font-size:clamp(34px,4.2vw,50px);line-height:1.26;letter-spacing:-.05em;text-wrap:balance}
+.opening-text{padding-bottom:0}
 
 /* shared */
 .kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow-ink)}
@@ -124,6 +124,23 @@ ul{padding:0;list-style:none}
 .text-btn{font:inherit;font-size:14.5px;font-weight:500;color:var(--ink);background:none;border:0;padding:0 0 2px;cursor:pointer;border-bottom:2px solid var(--line)}
 .text-btn:hover{color:var(--ink-2)}
 
+/* 섹션: 왼쪽에 이름과 설명, 오른쪽에 내용 */
+.band{display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:0 clamp(28px,4.5vw,76px);padding-block:clamp(44px,6vw,80px);border-top:1px solid var(--line)}
+.band + .band{border-top:0}
+.band-side{align-self:start;position:sticky;top:92px}
+.band-side .sec-lede{margin-top:12px;font-size:15.5px;line-height:1.7;color:var(--ink);max-width:22em}
+.btn{display:inline-block;margin-top:20px;background:var(--yellow);color:var(--on-yellow);font-family:var(--sans);font-weight:600;font-size:14.5px;line-height:1;padding:12px 20px;border-radius:999px}
+.btn:hover{background:var(--gold)}
+
+/* 노란 띠 */
+.sun{background:var(--yellow);box-shadow:0 0 0 100vmax var(--yellow);clip-path:inset(0 -100vmax);border-top:0}
+.sun .kicker{color:var(--on-yellow);opacity:.55}
+.about-body{align-self:center}
+.award{font-size:clamp(20px,2.3vw,27px);font-weight:500;line-height:1.45;letter-spacing:-.035em;color:var(--on-yellow);max-width:20em;text-wrap:balance}
+.about-mail{margin-top:22px;font-family:var(--kr);font-size:15.5px}
+.about-mail a{color:var(--on-yellow);border-bottom:2px solid rgba(6,6,6,.28);padding-bottom:2px}
+.about-mail a:hover{border-bottom-color:var(--on-yellow)}
+
 /* section blocks */
 .latest{padding-block:clamp(40px,5.5vw,64px);border-top:1px solid var(--line)}
 .latest + .latest{border-top:0}
@@ -132,11 +149,12 @@ ul{padding:0;list-style:none}
 .sec-head.stack .row{display:flex;align-items:flex-end;justify-content:space-between;gap:14px 28px;flex-wrap:wrap;margin-top:12px}
 .sec-head.stack .sec-lede{flex:1 1 18em;min-width:0;max-width:30em;font-size:16.5px;line-height:1.7;color:var(--ink)}
 .sec-head.stack .more-link{margin-left:auto}
-.titles{margin-top:28px;border-top:1px solid var(--line)}
-.titles li{border-bottom:1px solid var(--line)}
-.titles > li > a,.titles > li > span{display:block;padding-block:20px;font-size:clamp(18px,2vw,21px);font-weight:500;line-height:1.42;letter-spacing:-.04em}
+.titles{border-top:1px solid var(--line)}
+.titles > li{display:flex;align-items:baseline;justify-content:space-between;gap:10px 28px;border-bottom:1px solid var(--line);padding-block:18px}
+.titles .t{flex:0 1 auto;font-size:clamp(18px,1.9vw,21px);font-weight:500;line-height:1.42;letter-spacing:-.04em}
 .titles .ext{white-space:nowrap}
-.titles a:hover{color:var(--ink-2)}
+.titles a.t:hover{color:var(--yellow-ink)}
+.row-meta{flex:0 1 auto;font-size:13px;line-height:1.5;color:var(--ink-3);text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .co{margin-left:10px;font-size:12.5px;font-weight:400;letter-spacing:-.01em;text-transform:none;color:var(--ink-2)}
 .numbered li{display:grid;grid-template-columns:3.25rem minmax(0,1fr);gap:0 8px;padding-block:17px;border-bottom:1px solid var(--line)}
 .numbered .num{font-size:18px;font-weight:300;color:var(--ink-3);font-variant-numeric:tabular-nums;line-height:1.5}
@@ -145,8 +163,10 @@ ul{padding:0;list-style:none}
 .numbered h3 a:hover{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:3px;text-underline-offset:.2em}
 .numbered .dek{margin-top:5px;font-size:13px;line-height:1.6;color:var(--ink-3)}
 .numbered.plain li{grid-template-columns:minmax(0,1fr)}
-.card{margin-top:18px;background:var(--paper);border-radius:14px;padding:4px clamp(18px,3vw,26px)}
+.card{background:var(--paper);border-radius:14px;padding:4px clamp(18px,3vw,26px)}
 .card .numbered li:last-child{border-bottom:0}
+.numbered li:first-child{padding-top:0}
+.card .numbered li:first-child{padding-top:17px}
 .numbered .rows{margin-top:14px}
 .after{margin-top:20px}
 
@@ -224,6 +244,14 @@ ul{padding:0;list-style:none}
 .back{margin-block:40px 64px;font-size:14px;color:var(--ink-3)}
 .back a:hover{color:var(--ink)}
 
+@media (max-width:860px){
+  .band{grid-template-columns:minmax(0,1fr);gap:22px}
+  .band-side{position:static}
+  .band-side .sec-lede{max-width:none}
+  .titles > li{flex-direction:column;align-items:flex-start;gap:4px}
+  .row-meta{text-align:left;white-space:normal}
+  .award{max-width:none}
+}
 @media (max-width:760px){
   .site-nav{display:none}
   .site-name{margin-right:auto}
