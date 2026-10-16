@@ -135,10 +135,14 @@ ul{padding:0;list-style:none}
 /* 노란 띠 */
 .sun{background:var(--yellow);box-shadow:0 0 0 100vmax var(--yellow);clip-path:inset(0 -100vmax);border-top:0}
 .sun .kicker{color:var(--on-yellow);opacity:.55}
-.award{font-size:clamp(20px,2.3vw,27px);font-weight:500;line-height:1.45;letter-spacing:-.035em;color:var(--on-yellow);max-width:20em;text-wrap:balance}
-.about-mail{margin-top:22px;font-family:var(--kr);font-size:15.5px}
+.roles{color:var(--on-yellow)}
+.roles li{font-size:clamp(17px,1.8vw,20px);font-weight:500;line-height:1.5;letter-spacing:-.03em}
+.roles .when{font-weight:400;font-size:.76em;opacity:.6;white-space:nowrap}
+.award{margin-top:22px;padding-top:20px;border-top:1px solid rgba(6,6,6,.18);font-size:clamp(14.5px,1.3vw,16px);font-weight:500;line-height:1.45;letter-spacing:-.02em;color:var(--on-yellow);max-width:34em;opacity:.85}
+.about-mail{margin-top:16px;font-family:var(--kr);font-size:15.5px}
 .about-mail a{color:var(--on-yellow)}
 .about-mail a:hover{opacity:.6}
+.about-mail .sep{opacity:.4;margin:0 4px}
 
 /* section blocks */
 .latest{padding-block:clamp(40px,5.5vw,64px);border-top:1px solid var(--line)}
@@ -194,6 +198,18 @@ ul{padding:0;list-style:none}
 .fmail a:hover{color:var(--ink)}
 .fmail span{border-bottom:2px solid var(--line);padding-bottom:2px;overflow-wrap:anywhere}
 .foot-legal{margin-top:clamp(32px,4vw,44px);padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);text-align:center}
+
+/* 영문 CV */
+.cv-head{padding-block:clamp(30px,5vw,56px) clamp(26px,4vw,40px)}
+.cv-head h1{margin-top:10px;font-size:clamp(38px,6vw,56px);font-weight:500;letter-spacing:-.055em;line-height:1.08}
+.cv-lede{margin-top:18px;max-width:38em;font-size:16.5px;line-height:1.75}
+.cv-lede em{font-style:italic}
+.cv-mail{margin-top:18px;font-size:15px;color:var(--ink-2)}
+.cv-mail a{border-bottom:2px solid var(--line);padding-bottom:2px}
+.cv-mail a:hover{color:var(--ink)}
+.cv-mail .sep{opacity:.5;margin:0 4px;border:0}
+.cv .band{padding-block:clamp(34px,4.5vw,56px)}
+.cv .rows dd em,.cv .dek em{font-style:italic}
 
 /* archive page */
 .archive{padding-bottom:80px}
