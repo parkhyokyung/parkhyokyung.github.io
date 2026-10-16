@@ -6,6 +6,8 @@ export default function (config) {
   config.addPassthroughCopy({ "src/assets": "assets" });
   // 사용자 도메인. 배포할 때마다 함께 올라가야 설정이 유지된다
   config.addPassthroughCopy({ "src/CNAME": "CNAME" });
+  // 검색엔진 소유 확인 파일. 최상위에 원래 이름 그대로 놓여야 한다
+  config.addPassthroughCopy({ "src/verify": "." });
 
   // 글 목록: 최신 글이 위로
   config.addCollection("writing", (api) =>
