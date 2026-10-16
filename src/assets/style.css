@@ -12,7 +12,7 @@
   --yellow:#f6cc5e;            /* Prose yellow: the one point of colour */
   --gold:#fcd500;              /* the brighter highlight yellow */
   --on-yellow:#060606;
-  --label:#6c6c6c;             /* section labels stay grey; yellow is for marks, not text */
+  --label:#6c6c6c;
   --sans:"Outfit", "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   --serif:"Crimson Text", "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", serif;
   --col:40rem;
@@ -106,12 +106,11 @@ ul{padding:0;list-style:none}
 .opening{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,56px);align-items:end;padding-block:clamp(20px,3vw,36px) clamp(56px,8vw,96px)}
 .hero img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:6px}
 .hero figcaption{margin-top:10px;font-size:12px;color:var(--ink-3)}
-.role{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--label)}
 .opening h1{margin-top:16px;font-weight:500;font-size:clamp(34px,4.2vw,50px);line-height:1.26;letter-spacing:-.05em;text-wrap:balance}
 .opening-text{padding-bottom:28px}
 
 /* shared */
-.kicker{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--label)}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow)}
 .more-link{display:inline-block;font-size:15px;font-weight:500;color:var(--ink);border-bottom:2px solid var(--line);padding-bottom:2px}
 .more-link:hover{color:var(--ink-2)}
 .ext{font-weight:400;color:var(--ink-3)}
@@ -128,7 +127,7 @@ ul{padding:0;list-style:none}
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--line)}
 .sec-head.stack{display:block;border-bottom:0;padding-bottom:0}
 .sec-head.stack .row{display:flex;align-items:flex-end;justify-content:space-between;gap:14px 28px;flex-wrap:wrap;margin-top:12px}
-.sec-head.stack .sec-lede{flex:1 1 18em;min-width:0;max-width:30em;font-size:16.5px;line-height:1.7;color:var(--ink-2)}
+.sec-head.stack .sec-lede{flex:1 1 18em;min-width:0;max-width:30em;font-size:16.5px;line-height:1.7;color:var(--ink)}
 .sec-head.stack .more-link{margin-left:auto}
 .titles{margin-top:28px;border-top:1px solid var(--line)}
 .titles li{border-bottom:1px solid var(--line)}
@@ -141,7 +140,7 @@ ul{padding:0;list-style:none}
 .numbered .meta{font-size:13px}
 .numbered h3{margin-top:3px;font-size:clamp(19px,2.2vw,23px);font-weight:500;line-height:1.38;letter-spacing:-.045em;text-wrap:balance}
 .numbered h3 a:hover{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:3px;text-underline-offset:.2em}
-.numbered .dek{margin-top:4px;font-size:15px;line-height:1.6;color:var(--ink-2)}
+.numbered .dek{margin-top:5px;font-size:13px;line-height:1.6;color:var(--ink-3)}
 .numbered.plain li{grid-template-columns:minmax(0,1fr)}
 .card{margin-top:18px;background:var(--paper);border-radius:14px;padding:4px clamp(18px,3vw,26px)}
 .card .numbered li:last-child{border-bottom:0}
@@ -152,11 +151,11 @@ ul{padding:0;list-style:none}
 .rows{display:grid;gap:8px}
 .rows div{display:grid;grid-template-columns:3.5rem minmax(0,1fr);gap:12px}
 .rows dt{font-size:13px;color:var(--ink-3);padding-top:2px}
-.rows dd{font-size:14.5px;line-height:1.78;color:var(--ink-2)}
+.rows dd{font-size:14.5px;line-height:1.78;color:var(--ink)}
 .award{margin-top:18px;font-size:16.5px;line-height:1.7;max-width:34em}
 .profile{margin-top:22px;max-width:34em}
 .pname{font-size:clamp(26px,3.4vw,33px);font-weight:500;letter-spacing:-.045em;line-height:1.2}
-.pbio{margin-top:12px;font-size:16.5px;line-height:1.75;color:var(--ink-2)}
+.pbio{margin-top:12px;font-size:16.5px;line-height:1.75;color:var(--ink)}
 .pnote{margin-top:14px;font-size:14px;line-height:1.7;color:var(--ink-3)}
 .email{padding-top:22px}
 .email a{font-size:15.5px;font-weight:500;letter-spacing:-.01em;border-bottom:2px solid var(--line);padding-bottom:2px;overflow-wrap:anywhere}
@@ -179,7 +178,7 @@ ul{padding:0;list-style:none}
 .archive{padding-bottom:80px}
 .archive-head{padding-block:clamp(32px,6vw,64px) 30px;border-bottom:1px solid var(--line)}
 .archive-head h1{margin-top:12px;font-size:clamp(40px,7vw,58px);font-weight:500;letter-spacing:-.055em;line-height:1.08}
-.archive-head .lede{margin-top:18px;font-size:16.5px;line-height:1.75;color:var(--ink-2);max-width:32em}
+.archive-head .lede{margin-top:18px;font-size:16.5px;line-height:1.75;color:var(--ink);max-width:32em}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .pill{font:inherit;font-size:14px;line-height:1;padding:10px 16px;border-radius:999px;cursor:pointer;color:var(--ink-2);background:transparent;border:1px solid var(--line)}
 .pill:hover{color:var(--ink);border-color:var(--ink-3)}
@@ -213,11 +212,11 @@ ul{padding:0;list-style:none}
 .prose{font-family:var(--serif);font-size:17.5px;line-height:1.95;letter-spacing:-.012em}
 .prose p{margin:0 0 1.25em}
 .prose h2{margin:2em 0 .6em;font-size:21px;font-weight:600;letter-spacing:-.035em}
-.prose blockquote{margin:1.6em 0;padding-left:18px;border-left:3px solid var(--yellow);color:var(--ink-2)}
+.prose blockquote{margin:1.6em 0;padding-left:18px;border-left:3px solid var(--yellow)}
 .prose blockquote p{margin:0}
 .prose hr{border:0;margin:2.4em auto;width:40px;height:2px;background:var(--yellow)}
 .prose a{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:2px;text-underline-offset:.22em}
-.endnote{margin-top:44px;padding:22px 24px;background:var(--band);border-radius:12px;font-size:14px;line-height:1.85;color:var(--ink-2)}
+.endnote{margin-top:44px;padding:22px 24px;background:var(--band);border-radius:12px;font-size:14px;line-height:1.85;color:var(--ink)}
 .endnote p + p{margin-top:8px}
 .back{margin-block:40px 64px;font-size:14px;color:var(--ink-3)}
 .back a:hover{color:var(--ink)}
