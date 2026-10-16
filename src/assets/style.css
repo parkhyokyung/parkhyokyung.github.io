@@ -126,8 +126,8 @@ ul{padding:0;list-style:none}
 .band{display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:0 clamp(28px,4.5vw,76px);padding-block:clamp(44px,6vw,80px);border-top:1px solid var(--line);align-items:baseline}
 .band + .band{border-top:0}
 .band-side{align-self:baseline;position:sticky;top:92px}
-.band-side .sec-lede{margin-top:12px;font-size:15.5px;line-height:1.7;color:var(--ink);max-width:22em}
-.btn{display:inline-block;margin-top:20px;background:var(--yellow);color:var(--on-yellow);font-family:var(--sans);font-weight:600;font-size:14.5px;line-height:1;padding:12px 20px;border-radius:999px}
+.band-side .sec-lede{margin-top:12px;font-size:16px;line-height:1.75;color:var(--ink);max-width:22em}
+.btn{display:inline-block;margin-top:20px;background:var(--yellow);color:var(--on-yellow);font-family:var(--sans);font-weight:600;font-size:16px;line-height:1;padding:12px 22px;border-radius:999px}
 .btn:hover{background:var(--gold)}
 
 /* 노란 띠 */
@@ -140,10 +140,10 @@ ul{padding:0;list-style:none}
 .facts .ext{color:inherit;opacity:.5}
 .facts a:hover{opacity:.65}
 .roles{color:inherit}
-.roles li{font-size:clamp(15px,1.45vw,16.5px);font-weight:500;line-height:1.75;letter-spacing:-.02em}
-.roles .when{font-weight:400;font-size:.72em;opacity:.6;white-space:nowrap}
+.roles li{font-size:16px;font-weight:500;line-height:1.75;letter-spacing:-.02em}
+.roles .when{font-weight:400;font-size:13px;opacity:.6;white-space:nowrap}
 .roles li + li{margin-top:2px}
-.about-mail{margin-top:20px;font-family:var(--kr);font-size:15.5px}
+.about-mail{margin-top:20px;font-family:var(--kr);font-size:16px}
 .about-mail a{color:var(--ink-2)}
 .about-mail a:hover{color:var(--ink)}
 .about-mail .sep{opacity:.4;margin:0 4px}
@@ -158,7 +158,7 @@ ul{padding:0;list-style:none}
 .sec-head.stack .more-link{margin-left:auto}
 .titles{border-top:1px solid var(--line)}
 .titles > li{display:flex;align-items:baseline;justify-content:space-between;gap:10px 28px;border-bottom:1px solid var(--line);padding-block:18px}
-.titles .t{flex:0 1 auto;font-size:clamp(18px,1.9vw,21px);font-weight:500;line-height:1.42;letter-spacing:-.04em}
+.titles .t{flex:0 1 auto;font-size:clamp(17px,1.8vw,20px);font-weight:500;line-height:1.42;letter-spacing:-.035em}
 .titles .ext{white-space:nowrap}
 .titles a.t:hover{color:var(--yellow-ink)}
 .row-meta{flex:0 1 auto;font-size:13px;line-height:1.5;color:var(--ink-3);text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -166,7 +166,7 @@ ul{padding:0;list-style:none}
 .numbered li{display:grid;grid-template-columns:3.25rem minmax(0,1fr);gap:0 8px;padding-block:17px;border-bottom:1px solid var(--line)}
 .numbered .num{font-size:18px;font-weight:300;color:var(--ink-3);font-variant-numeric:tabular-nums;line-height:1.5}
 .numbered .meta{font-size:13px}
-.numbered h3{margin-top:3px;font-size:clamp(17px,1.85vw,19.5px);font-weight:500;line-height:1.38;letter-spacing:-.045em;text-wrap:balance}
+.numbered h3{margin-top:3px;font-size:clamp(17px,1.8vw,20px);font-weight:500;line-height:1.38;letter-spacing:-.045em;text-wrap:balance}
 .numbered h3 a:hover{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:3px;text-underline-offset:.2em}
 .numbered .dek{margin-top:5px;font-size:13px;line-height:1.6;color:var(--ink-3)}
 .numbered.plain li{grid-template-columns:minmax(0,1fr)}
@@ -181,7 +181,7 @@ ul{padding:0;list-style:none}
 .rows{display:grid;gap:8px}
 .rows div{display:grid;grid-template-columns:3.5rem minmax(0,1fr);gap:12px}
 .rows dt{font-size:13px;color:var(--ink-3);padding-top:2px}
-.rows dd{font-size:14.5px;line-height:1.78;color:var(--ink)}
+.rows dd{font-size:16px;line-height:1.75;color:var(--ink)}
 .profile{margin-top:22px;max-width:34em}
 .pname{font-size:clamp(26px,3.4vw,33px);font-weight:500;letter-spacing:-.045em;line-height:1.2}
 .pbio{margin-top:12px;font-size:16.5px;line-height:1.75;color:var(--ink)}
@@ -195,8 +195,8 @@ ul{padding:0;list-style:none}
 .site-foot .wrap-wide{padding-block:clamp(40px,5vw,60px) 36px}
 .foot-top{display:block}
 .fname{font-size:15.5px;font-weight:700;letter-spacing:-.02em;line-height:1.5}
-.ftag{margin-top:6px;font-size:15.5px;color:var(--ink-2)}
-.flinks{margin-top:3px;font-family:var(--kr);font-size:15.5px;line-height:1.6;color:var(--ink-2)}
+.ftag{margin-top:6px;font-size:16px;color:var(--ink-2)}
+.flinks{margin-top:3px;font-family:var(--kr);font-size:16px;line-height:1.6;color:var(--ink-2)}
 .flinks a{color:inherit;overflow-wrap:anywhere}
 .flinks a:hover{color:var(--ink)}
 .flinks .sep{opacity:.4}
