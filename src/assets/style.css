@@ -135,11 +135,11 @@ ul{padding:0;list-style:none}
 /* 노란 띠 */
 .sun{background:var(--yellow);box-shadow:0 0 0 100vmax var(--yellow);clip-path:inset(0 -100vmax);border-top:0}
 .sun .kicker{color:var(--on-yellow);opacity:.55}
-.about-body{align-self:center}
+.sun .band-side{padding-top:9px}
 .award{font-size:clamp(20px,2.3vw,27px);font-weight:500;line-height:1.45;letter-spacing:-.035em;color:var(--on-yellow);max-width:20em;text-wrap:balance}
 .about-mail{margin-top:22px;font-family:var(--kr);font-size:15.5px}
-.about-mail a{color:var(--on-yellow);border-bottom:2px solid rgba(6,6,6,.28);padding-bottom:2px}
-.about-mail a:hover{border-bottom-color:var(--on-yellow)}
+.about-mail a{color:var(--on-yellow)}
+.about-mail a:hover{opacity:.6}
 
 /* section blocks */
 .latest{padding-block:clamp(40px,5.5vw,64px);border-top:1px solid var(--line)}
