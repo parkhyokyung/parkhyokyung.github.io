@@ -13,7 +13,6 @@ permalink: /
     <div class="band-side">
       <h2 class="kicker">Latest writing</h2>
       <p class="sec-lede">극장에서 본 것을 쓴 비평, 공연 프로그램에 실은 글, 논문.</p>
-      <a class="more-link" href="/writing/">모두 보기</a>
     </div>
     <ul class="titles">
 {%- for item in collections.writing | onlyCategories(["criticism","programme"]) | head(5) %}
@@ -23,6 +22,7 @@ permalink: /
       </li>
 {%- endfor %}
     </ul>
+    <p class="list-more"><a href="/writing/">모두 보기</a></p>
   </section>
 
   <section class="band wrap-wide" id="dramaturg">
@@ -150,7 +150,8 @@ permalink: /
           </dd>
         </div>
       </dl>
-      <p class="about-mail"><a href="mailto:hyokyung.scene@gmail.com">hyokyung.scene@gmail.com</a> <span class="sep">·</span> <a href="/cv/">English CV</a></p>
+      <p class="about-mail"><a href="mailto:hyokyung.scene@gmail.com">hyokyung.scene@gmail.com</a></p>
+      <p class="about-cv"><a href="/cv/">English CV</a></p>
     </div>
   </section>
 </main>
