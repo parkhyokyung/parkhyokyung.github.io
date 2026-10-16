@@ -1,3 +1,4 @@
+@import url("fonts/latin.css");
 @import url("fonts/pretendard.css");
 
 /* Palette sampled from the Prose theme: white page, warm off-white bands,
@@ -9,7 +10,8 @@
   --ink-2:#6c6c6c;
   --ink-3:#9b9b94;
   --line:#e0dcc8;              /* the theme's khaki hairline, used for rules and underlines */
-  --yellow:#f6cc5e;            /* Prose yellow: the one point of colour */
+  --yellow:#f6cc5e;
+  --yellow-ink:#d9a520;        /* 글씨에 쓰는 노랑. 흰 바탕에서 읽히게 한 톤 내렸다 */            /* Prose yellow: the one point of colour */
   --gold:#fcd500;              /* the brighter highlight yellow */
   --on-yellow:#060606;
   --label:#6c6c6c;
@@ -21,13 +23,13 @@
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --paper:#121210; --band:#1c1a17; --ink:#f4f3ec; --ink-2:#b4b1a6; --ink-3:#84817a;
-    --line:#35332a; --label:#b4b1a6; --gold:#fcd500;
+    --line:#35332a; --label:#b4b1a6; --gold:#fcd500; --yellow-ink:#f6cc5e;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --paper:#121210; --band:#1c1a17; --ink:#f4f3ec; --ink-2:#b4b1a6; --ink-3:#84817a;
-  --line:#35332a; --label:#b4b1a6; --gold:#fcd500;
+  --line:#35332a; --label:#b4b1a6; --gold:#fcd500; --yellow-ink:#f6cc5e;
   color-scheme:dark;
 }
 
@@ -110,7 +112,7 @@ ul{padding:0;list-style:none}
 .opening-text{padding-bottom:28px}
 
 /* shared */
-.kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow)}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow-ink)}
 .more-link{display:inline-block;font-size:15px;font-weight:500;color:var(--ink);border-bottom:2px solid var(--line);padding-bottom:2px}
 .more-link:hover{color:var(--ink-2)}
 .ext{font-weight:400;color:var(--ink-3)}
@@ -131,14 +133,14 @@ ul{padding:0;list-style:none}
 .sec-head.stack .more-link{margin-left:auto}
 .titles{margin-top:28px;border-top:1px solid var(--line)}
 .titles li{border-bottom:1px solid var(--line)}
-.titles > li > a,.titles > li > span{display:block;padding-block:20px;font-size:clamp(20px,2.4vw,24px);font-weight:500;line-height:1.4;letter-spacing:-.04em}
+.titles > li > a,.titles > li > span{display:block;padding-block:20px;font-size:clamp(18px,2vw,21px);font-weight:500;line-height:1.42;letter-spacing:-.04em}
 .titles .ext{white-space:nowrap}
 .titles a:hover{color:var(--ink-2)}
 .co{margin-left:10px;font-size:12.5px;font-weight:400;letter-spacing:-.01em;text-transform:none;color:var(--ink-2)}
 .numbered li{display:grid;grid-template-columns:3.25rem minmax(0,1fr);gap:0 8px;padding-block:17px;border-bottom:1px solid var(--line)}
 .numbered .num{font-size:18px;font-weight:300;color:var(--ink-3);font-variant-numeric:tabular-nums;line-height:1.5}
 .numbered .meta{font-size:13px}
-.numbered h3{margin-top:3px;font-size:clamp(19px,2.2vw,23px);font-weight:500;line-height:1.38;letter-spacing:-.045em;text-wrap:balance}
+.numbered h3{margin-top:3px;font-size:clamp(17px,1.85vw,19.5px);font-weight:500;line-height:1.38;letter-spacing:-.045em;text-wrap:balance}
 .numbered h3 a:hover{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:3px;text-underline-offset:.2em}
 .numbered .dek{margin-top:5px;font-size:13px;line-height:1.6;color:var(--ink-3)}
 .numbered.plain li{grid-template-columns:minmax(0,1fr)}
@@ -176,11 +178,11 @@ ul{padding:0;list-style:none}
 
 /* archive page */
 .archive{padding-bottom:80px}
-.archive-head{padding-block:clamp(32px,6vw,64px) 30px;border-bottom:1px solid var(--line)}
+.archive-head{padding-block:clamp(28px,4.5vw,46px) 26px;border-bottom:1px solid var(--line)}
 .archive-head h1{margin-top:12px;font-size:clamp(40px,7vw,58px);font-weight:500;letter-spacing:-.055em;line-height:1.08}
 .archive-head .lede{margin-top:18px;font-size:16.5px;line-height:1.75;color:var(--ink);max-width:32em}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
-.pill{font:inherit;font-size:14px;line-height:1;padding:10px 16px;border-radius:999px;cursor:pointer;color:var(--ink-2);background:transparent;border:1px solid var(--line)}
+.pill{font:inherit;font-size:14px;line-height:1;padding:10px 16px;border-radius:999px;cursor:pointer;color:var(--ink);background:transparent;border:1px solid var(--line)}
 .pill:hover{color:var(--ink);border-color:var(--ink-3)}
 .pill[aria-pressed="true"]{background:var(--yellow);border-color:var(--yellow);color:var(--on-yellow);font-weight:600}
 .pill .n{margin-left:5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
@@ -189,14 +191,14 @@ ul{padding:0;list-style:none}
 .featured-card{display:block;margin-top:16px;padding:14px;background:var(--band);border-radius:14px}
 .featured-card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px}
 .featured-card .cat{display:block;margin-top:16px}
-.featured-card .ftitle{display:block;margin-top:5px;font-size:22px;font-weight:500;letter-spacing:-.045em;line-height:1.4;color:var(--ink)}
+.featured-card .ftitle{display:block;margin-top:5px;font-size:19.5px;font-weight:500;letter-spacing:-.045em;line-height:1.4;color:var(--ink)}
 .featured-card:hover .ftitle{text-decoration:underline;text-underline-offset:.2em}
 .featured-card .fmeta{display:block;margin-top:5px;padding-bottom:4px;font-size:13.5px;color:var(--ink-3)}
 .year-group{padding-top:30px}
 .year{font-size:19px;font-weight:400;font-style:italic;color:var(--ink-2);letter-spacing:-.015em;padding-bottom:10px}
 .entry{padding-block:18px;border-bottom:1px solid var(--line)}
 .entry .cat,.featured-card .cat{font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--label)}
-.entry h3{margin-top:5px;font-size:20.5px;font-weight:500;line-height:1.42;letter-spacing:-.045em;text-wrap:balance}
+.entry h3{margin-top:5px;font-size:18px;font-weight:500;line-height:1.42;letter-spacing:-.045em;text-wrap:balance}
 .entry h3 a:hover{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:3px;text-underline-offset:.2em}
 .entry .emeta{margin-top:5px;font-size:13.5px;color:var(--ink-3)}
 .archive .after{margin-top:26px}

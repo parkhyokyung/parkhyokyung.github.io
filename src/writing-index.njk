@@ -14,8 +14,6 @@ description: 박효경의 비평, 프로그램 글, 논문
 <main class="archive wrap">
   <header class="archive-head">
     <p class="kicker">Writing · {{ all.length }}편</p>
-    <h1>글</h1>
-    <p class="lede">극장에서 본 것을 쓴 비평, 공연 프로그램에 실은 글, 논문. 최신순으로 보거나 분류별로 골라 본다.</p>
     <div class="pills" role="group" aria-label="분류">
       <button class="pill" type="button" data-filter="all" aria-pressed="true">전체 <span class="n">{{ all.length }}</span></button>
       {% if nCrit %}<button class="pill" type="button" data-filter="criticism" aria-pressed="false">비평 <span class="n">{{ nCrit }}</span></button>{% endif %}
