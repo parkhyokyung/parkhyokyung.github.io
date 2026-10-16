@@ -5,7 +5,6 @@ layout: base.njk
   <header class="head wrap">
     <p class="cat">{{ category | catLabel }}</p>
     <h1>{{ title }}</h1>
-    <p class="artmeta"><time datetime="{{ page.date | iso }}">{{ page.date | dot }}</time>{% if work %} {{ work }}{% endif %}{% if source %} · {{ source }}{% endif %}</p>
   </header>
 
   {% if image %}
@@ -20,9 +19,10 @@ layout: base.njk
 {{ content | safe }}
     </div>
 
-    {% if link %}
-    <p class="endlink"><a class="text-btn" href="{{ link }}" target="_blank" rel="noopener">원문 보기 ↗</a></p>
-    {% endif %}
+    <div class="endnote">
+      <p class="artmeta"><time datetime="{{ page.date | iso }}">{{ page.date | dot }}</time>{% if work %} {{ work }}{% endif %}{% if source %} · {{ source }}{% endif %}</p>
+      {% if link %}<p class="endlink"><a class="text-btn" href="{{ link }}" target="_blank" rel="noopener">원문 보기 ↗</a></p>{% endif %}
+    </div>
 
     <p class="back"><a href="/writing/">← 글 목록</a></p>
   </div>
