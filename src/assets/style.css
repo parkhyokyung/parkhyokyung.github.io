@@ -125,9 +125,9 @@ ul{padding:0;list-style:none}
 .text-btn:hover{color:var(--ink-2)}
 
 /* 섹션: 왼쪽에 이름과 설명, 오른쪽에 내용 */
-.band{display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:0 clamp(28px,4.5vw,76px);padding-block:clamp(44px,6vw,80px);border-top:1px solid var(--line)}
+.band{display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:0 clamp(28px,4.5vw,76px);padding-block:clamp(44px,6vw,80px);border-top:1px solid var(--line);align-items:baseline}
 .band + .band{border-top:0}
-.band-side{align-self:start;position:sticky;top:92px}
+.band-side{align-self:baseline;position:sticky;top:92px}
 .band-side .sec-lede{margin-top:12px;font-size:15.5px;line-height:1.7;color:var(--ink);max-width:22em}
 .btn{display:inline-block;margin-top:20px;background:var(--yellow);color:var(--on-yellow);font-family:var(--sans);font-weight:600;font-size:14.5px;line-height:1;padding:12px 20px;border-radius:999px}
 .btn:hover{background:var(--gold)}
@@ -135,7 +135,6 @@ ul{padding:0;list-style:none}
 /* 노란 띠 */
 .sun{background:var(--yellow);box-shadow:0 0 0 100vmax var(--yellow);clip-path:inset(0 -100vmax);border-top:0}
 .sun .kicker{color:var(--on-yellow);opacity:.55}
-.sun .band-side{padding-top:9px}
 .award{font-size:clamp(20px,2.3vw,27px);font-weight:500;line-height:1.45;letter-spacing:-.035em;color:var(--on-yellow);max-width:20em;text-wrap:balance}
 .about-mail{margin-top:22px;font-family:var(--kr);font-size:15.5px}
 .about-mail a{color:var(--on-yellow)}
