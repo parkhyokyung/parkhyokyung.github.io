@@ -5,7 +5,7 @@ layout: base.njk
   <header class="head wrap">
     <p class="cat">{{ category | catLabel }}</p>
     <h1>{{ title }}</h1>
-    <p class="artmeta"><time datetime="{{ page.date | iso }}">{{ page.date | dot }}</time>{% if work %} {{ work }}{% endif %}{% if source %} · {{ source }}{% endif %}{% if seen and category != "programme" %} · 관람 {{ seen | dot }}{% endif %}</p>
+    <p class="artmeta"><time datetime="{{ page.date | iso }}">{{ page.date | dot }}</time>{% if work %} {{ work }}{% endif %}{% if source %} · {{ source }}{% endif %}</p>
   </header>
 
   {% if image %}
