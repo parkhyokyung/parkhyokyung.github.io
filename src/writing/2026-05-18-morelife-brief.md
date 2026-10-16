@@ -1,5 +1,5 @@
 ---
-title: "모어 라이프"
+title: "연극 〈모어 라이프〉"
 slug: morelife-brief
 category: brief
 date: 2026-05-18
