@@ -1,6 +1,6 @@
 ---
 title: "모어 라이프"
-slug: pab407c1
+slug: morelife-brief
 category: brief
 date: 2026-05-18
 work: "두산 인문극장 〈모어 라이프〉"
