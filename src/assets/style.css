@@ -190,10 +190,10 @@ ul{padding:0;list-style:none}
 .foot-top{display:block}
 .fname{font-size:15.5px;font-weight:700;letter-spacing:-.02em;line-height:1.5}
 .ftag{margin-top:6px;font-size:15.5px;color:var(--ink-2)}
-.fmail{margin-top:14px}
-.fmail a{display:inline-block;font-family:var(--kr);font-size:15.5px;color:var(--ink-2)}
-.fmail a:hover{color:var(--ink)}
-.fmail span{border-bottom:2px solid var(--line);padding-bottom:2px;overflow-wrap:anywhere}
+.flinks{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 9px;margin-top:3px;font-family:var(--kr);font-size:15.5px;color:var(--ink-2)}
+.flinks a{color:inherit;overflow-wrap:anywhere}
+.flinks a:hover{color:var(--ink)}
+.flinks .sep{opacity:.4}
 .foot-legal{margin-top:clamp(32px,4vw,44px);padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);text-align:center}
 
 /* 영문 CV */
