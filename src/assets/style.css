@@ -107,8 +107,8 @@ ul{padding:0;list-style:none}
 
 /* opening */
 .opening{display:flex;align-items:center;gap:clamp(18px,3.5vw,44px);padding-block:clamp(30px,4.5vw,56px)}
-.opening .mark{flex:none;width:clamp(88px,9.5vw,132px);height:auto;border:7px solid var(--paper);border-radius:16px;align-self:center;box-sizing:content-box}
-.opening h1{font-weight:500;font-size:clamp(22px,2.5vw,31px);line-height:1.45;letter-spacing:-.035em;color:var(--on-yellow);text-wrap:balance}
+.opening .mark{flex:none;width:clamp(88px,9.5vw,132px);height:auto;border-radius:14px;align-self:center}
+.opening h1{font-weight:500;font-size:clamp(22px,2.5vw,31px);line-height:1.45;letter-spacing:-.035em;text-wrap:balance}
 
 /* shared */
 .kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow-ink)}
@@ -131,8 +131,10 @@ ul{padding:0;list-style:none}
 .btn:hover{background:var(--gold)}
 
 /* 노란 띠 */
-.sun{background:var(--yellow);box-shadow:0 0 0 100vmax var(--yellow);clip-path:inset(0 -100vmax);border-top:0}
-.roles{color:var(--ink)}
+.sun{background:var(--yellow);box-shadow:0 0 0 100vmax var(--yellow);clip-path:inset(0 -100vmax);border-top:0;color:var(--on-yellow)}
+.sun .kicker,.sun .about-mail a{color:var(--on-yellow)}
+.sun .about-mail a:hover{opacity:.6}
+.roles{color:inherit}
 .roles li{font-size:clamp(15px,1.45vw,16.5px);font-weight:500;line-height:1.75;letter-spacing:-.02em}
 .roles .when{font-weight:400;font-size:.72em;opacity:.6;white-space:nowrap}
 .roles li + li{margin-top:2px}
