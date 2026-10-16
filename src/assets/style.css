@@ -195,8 +195,7 @@ ul{padding:0;list-style:none}
 .site-foot .wrap-wide{padding-block:clamp(40px,5vw,60px) 36px}
 .foot-top{display:block}
 .fname{font-size:15.5px;font-weight:700;letter-spacing:-.02em;line-height:1.5}
-.ftag{margin-top:6px;font-size:16px;color:var(--ink-2)}
-.flinks{margin-top:3px;font-family:var(--kr);font-size:16px;line-height:1.6;color:var(--ink-2)}
+.flinks{margin-top:7px;font-family:var(--kr);font-size:13px;line-height:1.75;color:var(--ink-2)}
 .flinks a{color:inherit;overflow-wrap:anywhere}
 .flinks a:hover{color:var(--ink)}
 .flinks .sep{opacity:.4}
