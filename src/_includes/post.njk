@@ -21,7 +21,7 @@ layout: base.njk
     </div>
 
     <div class="endnote">
-      <p>{% if seen %}관람 {{ seen | dot }} · {% endif %}작성 {{ page.date | dot }}</p>
+      {% if seen and category != "programme" %}<p>관람 {{ seen | dot }}</p>{% endif %}
       {% if info %}<p>{{ info | nl2br | safe }}</p>{% endif %}
       {% if link %}<p><a class="text-btn" href="{{ link }}" target="_blank" rel="noopener">원문 보기{% if source %} · {{ source }}{% endif %} ↗</a></p>{% endif %}
     </div>
