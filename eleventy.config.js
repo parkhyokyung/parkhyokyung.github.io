@@ -15,6 +15,7 @@ export default function (config) {
   );
 
   config.addFilter("byCategory", (items, key) => items.filter((i) => i.data.category === key));
+  config.addFilter("onlyCategories", (items, keys) => items.filter((i) => keys.includes(i.data.category)));
 
   config.addFilter("year", (d) => (d === "now" ? new Date() : new Date(d)).getUTCFullYear());
 

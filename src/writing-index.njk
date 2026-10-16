@@ -13,7 +13,7 @@ description: 박효경의 비평, 프로그램 글, 논문
 {%- for it in all -%}{%- if not featured and it.data.image -%}{%- set featured = it -%}{%- endif -%}{%- endfor -%}
 <main class="archive wrap">
   <header class="archive-head">
-    <p class="kicker">Writing · {{ all.length }}편</p>
+    <p class="kicker">Writing</p>
     <div class="pills" role="group" aria-label="분류">
       <button class="pill" type="button" data-filter="all" aria-pressed="true">전체 <span class="n">{{ all.length }}</span></button>
       {% if nCrit %}<button class="pill" type="button" data-filter="criticism" aria-pressed="false">비평 <span class="n">{{ nCrit }}</span></button>{% endif %}

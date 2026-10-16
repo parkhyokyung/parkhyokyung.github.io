@@ -109,7 +109,7 @@ ul{padding:0;list-style:none}
 .opening{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,5vw,56px);align-items:center;padding-block:clamp(28px,4vw,52px) clamp(36px,5vw,64px)}
 .hero img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:6px}
 .hero figcaption{margin-top:10px;font-size:12px;color:var(--ink-3)}
-.opening h1{font-weight:500;font-size:clamp(34px,4.2vw,50px);line-height:1.26;letter-spacing:-.05em;text-wrap:balance}
+.opening h1{font-weight:500;font-size:clamp(25px,2.9vw,36px);line-height:1.4;letter-spacing:-.04em;text-wrap:balance}
 .opening-text{padding-bottom:0}
 
 /* shared */
@@ -134,10 +134,10 @@ ul{padding:0;list-style:none}
 
 /* 노란 띠 */
 .sun{background:var(--yellow);box-shadow:0 0 0 100vmax var(--yellow);clip-path:inset(0 -100vmax);border-top:0}
-.sun .kicker{color:var(--on-yellow);opacity:.55}
+.sun .kicker{color:var(--on-yellow)}
 .roles{color:var(--on-yellow)}
 .roles li{font-size:clamp(17px,1.8vw,20px);font-weight:500;line-height:1.5;letter-spacing:-.03em}
-.roles .when{font-weight:400;font-size:.76em;opacity:.6;white-space:nowrap}
+.roles .when{font-weight:400;font-size:.72em;opacity:.6;white-space:nowrap}
 .award{margin-top:22px;padding-top:20px;border-top:1px solid rgba(6,6,6,.18);font-size:clamp(14.5px,1.3vw,16px);font-weight:500;line-height:1.45;letter-spacing:-.02em;color:var(--on-yellow);max-width:34em;opacity:.85}
 .about-mail{margin-top:16px;font-family:var(--kr);font-size:15.5px}
 .about-mail a{color:var(--on-yellow)}
@@ -231,7 +231,7 @@ ul{padding:0;list-style:none}
 .featured-card:hover .ftitle{text-decoration:underline;text-underline-offset:.2em}
 .featured-card .fmeta{display:block;margin-top:5px;padding-bottom:4px;font-size:13.5px;color:var(--ink-3)}
 .year-group{padding-top:30px}
-.year{font-size:19px;font-weight:400;font-style:italic;color:var(--ink-2);letter-spacing:-.015em;padding-bottom:10px}
+.year{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--ink);padding-bottom:10px}
 .entry{padding-block:18px;border-bottom:1px solid var(--line)}
 .entry .cat,.featured-card .cat{font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--label)}
 .entry h3{margin-top:5px;font-size:18px;font-weight:500;line-height:1.42;letter-spacing:-.045em;text-wrap:balance}
