@@ -134,6 +134,11 @@ ul{padding:0;list-style:none}
 .sun{background:var(--yellow);box-shadow:0 0 0 100vmax var(--yellow);clip-path:inset(0 -100vmax);border-top:0;color:var(--on-yellow)}
 .sun .kicker,.sun .about-mail a{color:var(--on-yellow)}
 .sun .about-mail a:hover{opacity:.6}
+.facts{display:grid;gap:18px;color:inherit}
+.facts > div{display:grid;grid-template-columns:3.6rem minmax(0,1fr);gap:14px}
+.facts dt{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding-top:5px;opacity:.55}
+.facts .ext{color:inherit;opacity:.5}
+.facts a:hover{opacity:.65}
 .roles{color:inherit}
 .roles li{font-size:clamp(15px,1.45vw,16.5px);font-weight:500;line-height:1.75;letter-spacing:-.02em}
 .roles .when{font-weight:400;font-size:.72em;opacity:.6;white-space:nowrap}
@@ -250,6 +255,7 @@ ul{padding:0;list-style:none}
 .prose h2{margin:2em 0 .6em;font-size:21px;font-weight:600;letter-spacing:-.035em}
 .prose blockquote{margin:1.6em 0;padding-left:18px;border-left:3px solid var(--yellow)}
 .prose blockquote p{margin:0}
+.prose blockquote p + p{margin-top:.9em;font-family:var(--sans);font-size:.82em;line-height:1.6;color:var(--ink-2)}
 .prose hr{border:0;margin:2.4em auto;width:40px;height:2px;background:var(--yellow)}
 .prose a{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:2px;text-underline-offset:.22em}
 .endnote{margin-top:44px;padding:22px 24px;background:var(--band);border-radius:12px;font-size:14px;line-height:1.85;color:var(--ink)}
