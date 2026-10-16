@@ -112,8 +112,8 @@ ul{padding:0;list-style:none}
 
 /* shared */
 .kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow-ink)}
-.more-link{display:inline-block;font-size:15px;font-weight:500;color:var(--ink);border-bottom:2px solid var(--line);padding-bottom:2px}
-.more-link:hover{color:var(--ink-2)}
+.more-link{display:inline-block;font-size:16px;font-weight:500;color:var(--ink);border-bottom:2px solid var(--line);padding-bottom:2px}
+.more-link:hover{border-bottom-color:var(--yellow)}
 .ext{font-weight:400;color:var(--ink-3)}
 .dim{font-weight:400;color:var(--ink-3)}
 .star{color:var(--gold);font-size:.8em;vertical-align:.08em}
@@ -127,8 +127,7 @@ ul{padding:0;list-style:none}
 .band + .band{border-top:0}
 .band-side{align-self:baseline;position:sticky;top:92px}
 .band-side .sec-lede{margin-top:12px;font-size:16px;line-height:1.75;color:var(--ink);max-width:22em}
-.btn{display:inline-block;margin-top:20px;background:var(--yellow);color:var(--on-yellow);font-family:var(--sans);font-weight:600;font-size:16px;line-height:1;padding:12px 22px;border-radius:999px}
-.btn:hover{background:var(--gold)}
+.band-side .more-link{margin-top:18px}
 
 /* 노란 띠 */
 .sun{background:var(--yellow);box-shadow:0 0 0 100vmax var(--yellow);clip-path:inset(0 -100vmax);border-top:0;color:var(--on-yellow)}
