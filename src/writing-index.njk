@@ -9,6 +9,7 @@ description: 박효경의 비평, 프로그램 글, 논문
 {%- set nBrief = (all | byCategory("brief")).length -%}
 {%- set nProg = (all | byCategory("programme")).length -%}
 {%- set nAcad = (all | byCategory("academic")).length -%}
+{%- set nRound = (all | byCategory("roundtable")).length -%}
 {%- set featured = null -%}
 {%- for it in all -%}{%- if not featured and it.data.image -%}{%- set featured = it -%}{%- endif -%}{%- endfor -%}
 <main class="archive wrap">
@@ -20,6 +21,7 @@ description: 박효경의 비평, 프로그램 글, 논문
       {% if nBrief %}<button class="pill" type="button" data-filter="brief" aria-pressed="false">단평 <span class="n">{{ nBrief }}</span></button>{% endif %}
       {% if nProg %}<button class="pill" type="button" data-filter="programme" aria-pressed="false">프로그램 글 <span class="n">{{ nProg }}</span></button>{% endif %}
       {% if nAcad %}<button class="pill" type="button" data-filter="academic" aria-pressed="false">논문 <span class="n">{{ nAcad }}</span></button>{% endif %}
+      {% if nRound %}<button class="pill" type="button" data-filter="roundtable" aria-pressed="false">좌담·인터뷰 <span class="n">{{ nRound }}</span></button>{% endif %}
     </div>
   </header>
 
