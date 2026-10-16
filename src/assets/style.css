@@ -106,11 +106,9 @@ ul{padding:0;list-style:none}
 .site-nav a:hover{color:var(--ink)}
 
 /* opening */
-.opening{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,5vw,56px);align-items:center;padding-block:clamp(28px,4vw,52px) clamp(36px,5vw,64px)}
-.hero img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:6px}
-.hero figcaption{margin-top:10px;font-size:12px;color:var(--ink-3)}
-.opening h1{font-weight:500;font-size:clamp(25px,2.9vw,36px);line-height:1.4;letter-spacing:-.04em;text-wrap:balance}
-.opening-text{padding-bottom:0}
+.opening{display:flex;align-items:center;gap:clamp(18px,3.5vw,44px);padding-block:clamp(30px,4.5vw,56px)}
+.opening .mark{flex:none;width:clamp(84px,9vw,124px);height:auto;align-self:flex-end}
+.opening h1{font-weight:500;font-size:clamp(22px,2.5vw,31px);line-height:1.45;letter-spacing:-.035em;color:var(--on-yellow);text-wrap:balance}
 
 /* shared */
 .kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow-ink)}
@@ -134,14 +132,13 @@ ul{padding:0;list-style:none}
 
 /* 노란 띠 */
 .sun{background:var(--yellow);box-shadow:0 0 0 100vmax var(--yellow);clip-path:inset(0 -100vmax);border-top:0}
-.sun .kicker{color:var(--on-yellow)}
-.roles{color:var(--on-yellow)}
-.roles li{font-size:clamp(17px,1.8vw,20px);font-weight:500;line-height:1.5;letter-spacing:-.03em}
+.roles{color:var(--ink)}
+.roles li{font-size:clamp(15px,1.45vw,16.5px);font-weight:500;line-height:1.75;letter-spacing:-.02em}
 .roles .when{font-weight:400;font-size:.72em;opacity:.6;white-space:nowrap}
-.award{margin-top:22px;padding-top:20px;border-top:1px solid rgba(6,6,6,.18);font-size:clamp(14.5px,1.3vw,16px);font-weight:500;line-height:1.45;letter-spacing:-.02em;color:var(--on-yellow);max-width:34em;opacity:.85}
+.award{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:clamp(14.5px,1.3vw,16px);font-weight:500;line-height:1.45;letter-spacing:-.02em;color:var(--ink-2);max-width:34em}
 .about-mail{margin-top:16px;font-family:var(--kr);font-size:15.5px}
-.about-mail a{color:var(--on-yellow)}
-.about-mail a:hover{opacity:.6}
+.about-mail a{color:var(--ink-2)}
+.about-mail a:hover{color:var(--ink)}
 .about-mail .sep{opacity:.4;margin:0 4px}
 
 /* section blocks */
@@ -270,8 +267,8 @@ ul{padding:0;list-style:none}
 @media (max-width:760px){
   .site-nav{display:none}
   .site-name{margin-right:auto}
-  .opening{grid-template-columns:minmax(0,1fr);align-items:start}
-  .opening-text{padding-bottom:0}
+  .opening{flex-direction:column;align-items:flex-start;gap:14px}
+  .opening .mark{align-self:flex-start}
 }
 @media (max-width:520px){
   body{font-size:15.5px}
