@@ -8,8 +8,8 @@
   --paper:#ffffff;
   --band:#f9f6f3;              /* warm off-white section ground */
   --ink:#060606;
-  --ink-2:#6c6c6c;
-  --ink-3:#9b9b94;
+  --ink-2:#555555;
+  --ink-3:#70706a;
   --line:#e0dcc8;              /* the theme's khaki hairline, used for rules and underlines */
   --yellow:#f6cc5e;
   --yellow-ink:#d9a520;        /* 글씨에 쓰는 노랑. 흰 바탕에서 읽히게 한 톤 내렸다 */
@@ -25,13 +25,13 @@
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --paper:#121210; --band:#1c1a17; --ink:#f4f3ec; --ink-2:#b4b1a6; --ink-3:#84817a;
+    --paper:#121210; --band:#1c1a17; --ink:#f4f3ec; --ink-2:#b4b1a6; --ink-3:#8c8981;
     --line:#35332a; --label:#b4b1a6; --gold:#fcd500; --yellow-ink:#f6cc5e;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --paper:#121210; --band:#1c1a17; --ink:#f4f3ec; --ink-2:#b4b1a6; --ink-3:#84817a;
+  --paper:#121210; --band:#1c1a17; --ink:#f4f3ec; --ink-2:#b4b1a6; --ink-3:#8c8981;
   --line:#35332a; --label:#b4b1a6; --gold:#fcd500; --yellow-ink:#f6cc5e;
   color-scheme:dark;
 }
@@ -153,12 +153,12 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
 .about-cv a:hover{color:var(--ink);border-bottom-color:var(--ink)}
 .facts{display:grid;gap:18px;color:inherit}
 .facts > div{display:grid;grid-template-columns:3.6rem minmax(0,1fr);gap:14px}
-.facts dt{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding-top:5px;opacity:.55}
-.facts .ext{color:inherit;opacity:.5}
+.facts dt{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding-top:5px;color:var(--ink-3)}
+.facts .ext{color:var(--ink-3)}
 .facts a:hover{opacity:.65}
 .roles{color:inherit}
 .roles li{font-size:16px;font-weight:500;line-height:1.75;letter-spacing:-.02em}
-.roles .when{font-weight:400;font-size:13px;opacity:.6;white-space:nowrap}
+.roles .when{font-weight:400;font-size:13px;color:var(--ink-3);white-space:nowrap}
 .roles li + li{margin-top:2px}
 .about-mail{margin-top:24px;margin-left:calc(3.6rem + 14px);font-family:var(--kr);font-size:13px}
 .about-mail a{color:var(--ink-2)}
@@ -257,7 +257,7 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
 .pill:hover{color:var(--ink);border-color:var(--ink-3)}
 .pill[aria-pressed="true"]{background:var(--yellow);border-color:var(--yellow);color:var(--on-yellow);font-weight:600}
 .pill .n{margin-left:5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
-.pill[aria-pressed="true"] .n{color:var(--on-yellow);opacity:.55}
+.pill[aria-pressed="true"] .n{color:var(--on-yellow);opacity:.7}
 .archive-list{padding-block:clamp(20px,3vw,36px) clamp(64px,9vw,110px)}
 .featured{padding-block:34px 10px}
 .featured-card{display:block;margin-top:16px}
