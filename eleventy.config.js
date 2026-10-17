@@ -26,7 +26,12 @@ export default function (config) {
     return `${x.getUTCFullYear()}.${x.getUTCMonth() + 1}.${x.getUTCDate()}.`;
   });
 
-  config.addFilter("subline", (data) => [data.work, data.source].filter(Boolean).join(" · "));
+  // 목록의 곁정보. 실린 곳에 이미 공연명(〈…〉)이 들어 있으면 작품·단체를 빼서 같은 이름이 두 번 나오지 않게 한다
+  config.addFilter("subline", (data) => {
+    const t = (data.work || "").match(/〈[^〉]+〉/);
+    const dup = t && data.source && data.source.includes(t[0]);
+    return [dup ? null : data.work, data.source].filter(Boolean);
+  });
 
   // 배포할 때마다 바뀌는 값. 브라우저가 예전 스타일을 붙잡지 않게 한다
   config.addGlobalData("build", () => Date.now().toString(36));
