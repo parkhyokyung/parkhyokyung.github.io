@@ -1,5 +1,6 @@
 @import url("fonts/latin.css");
 @import url("fonts/pretendard.css");
+@import url("fonts/noto-serif-kr.css");
 
 /* Palette sampled from the Prose theme: white page, warm off-white bands,
    near-black ink, one yellow. Layout after Quiet: section name left, content right. */
@@ -18,6 +19,7 @@
   --kr:"Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   --sans:"Outfit", "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   --serif:"Crimson Text", "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", serif;
+  --book:"Crimson Text", "Noto Serif KR", "AppleMyungjo", "Batang", serif;
   --col:40rem;
   --wide:66rem;
 }
@@ -85,7 +87,7 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
   position:sticky;top:0;z-index:20;
   background:color-mix(in srgb, var(--band) 92%, transparent);
   backdrop-filter:saturate(1.6) blur(10px);-webkit-backdrop-filter:saturate(1.6) blur(10px);
-  border-bottom:1px solid var(--line);
+  border-bottom:0;
 }
 @supports not (backdrop-filter: blur(1px)){.site-head{background:var(--band)}}
 .site-head .wrap-wide{display:flex;align-items:center;gap:10px 24px;padding-block:14px}
@@ -138,7 +140,7 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
 .text-btn:hover{color:var(--ink-2)}
 
 /* 섹션: 왼쪽에 이름과 설명, 오른쪽에 내용 */
-.band{display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:0 clamp(28px,4.5vw,76px);padding-block:clamp(44px,6vw,80px);border-top:1px solid var(--line);align-items:baseline}
+.band{display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:0 clamp(28px,4.5vw,76px);padding-block:clamp(44px,6vw,80px);align-items:baseline}
 .band + .band{border-top:0}
 .band-side{align-self:baseline;position:sticky;top:92px}
 .band-side .sec-lede{margin-top:12px;font-size:16px;line-height:1.75;color:var(--ink-2);max-width:22em}
@@ -168,7 +170,7 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
 .about-mail .sep{opacity:.4;margin:0 4px}
 
 /* section blocks */
-.latest{padding-block:clamp(40px,5.5vw,64px);border-top:1px solid var(--line)}
+.latest{padding-block:clamp(40px,5.5vw,64px)}
 .latest + .latest{border-top:0}
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--line)}
 .sec-head.stack{display:block;border-bottom:0;padding-bottom:0}
@@ -221,7 +223,8 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
 .email a:hover{color:var(--ink-2)}
 
 /* footer, after the Quiet theme: name, tagline, email, link columns */
-.site-foot{background:var(--paper);border-top:1px solid var(--line)}
+.site-foot{background:var(--band)}
+body:has(.archive-list) .site-foot{background:var(--paper)}
 .site-foot .wrap-wide{padding-block:clamp(40px,5vw,60px) 36px}
 .foot-top{display:block}
 .fname{font-size:15.5px;font-weight:700;letter-spacing:-.02em;line-height:1.5}
@@ -288,7 +291,7 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
 .share-open{display:inline-flex;align-items:center;gap:6px;font:inherit;color:inherit;background:none;border:0;padding:4px 0;cursor:pointer}
 .share-open:hover{color:var(--ink)}
 .share-open svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round}
-.post-rule{margin:0 0 clamp(36px,5vw,56px);border:0;border-top:1px solid var(--line)}
+.post-head{margin-bottom:clamp(8px,2vw,20px)}
 .artinfo{margin-top:8px;font-size:13.5px;line-height:1.7;color:var(--ink-2)}
 
 /* 공유 창 */
@@ -323,10 +326,11 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
 .cover{margin-bottom:clamp(32px,5vw,48px)}
 .cover img{width:100%;border-radius:8px}
 .cover figcaption{margin-top:10px;font-size:12px;color:var(--ink-3);text-align:center}
-.prose{font-family:var(--serif);font-size:17.5px;line-height:1.95;letter-spacing:-.012em}
+.prose{font-family:var(--book);font-size:17.5px;line-height:1.95;letter-spacing:-.025em}
+.post-dek{font-family:var(--book);letter-spacing:-.02em}
 .prose p{margin:0 0 1.25em}
-.prose h2{margin:2em 0 .6em;font-size:21px;font-weight:600;letter-spacing:-.035em}
-.prose blockquote{margin:1.8em 0;padding:clamp(20px,3vw,28px) clamp(20px,3.4vw,32px);background:var(--band);border-radius:14px}
+.prose h2{margin:2em 0 .6em;font-family:var(--sans);font-size:21px;font-weight:500;letter-spacing:-.035em}
+.prose blockquote{font-size:.92em;line-height:1.9;margin:1.8em 0;padding:clamp(20px,3vw,28px) clamp(20px,3.4vw,32px);background:var(--band);border-radius:14px}
 .prose blockquote p{margin:0}
 .prose blockquote p + p{margin-top:.9em;font-family:var(--sans);font-size:.82em;line-height:1.6;color:var(--ink-2)}
 .prose hr{border:0;margin:2.4em auto;width:40px;height:2px;background:var(--yellow)}
