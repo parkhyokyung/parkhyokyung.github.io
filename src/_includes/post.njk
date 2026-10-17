@@ -1,11 +1,24 @@
 ---
 layout: base.njk
 ---
+{%- set shareUrl = site.url + page.url -%}
+{%- set dek = subtitle or work -%}
 <main class="article">
-  <header class="head wrap">
-    <p class="cat">{{ category | catLabel }}</p>
+  <header class="post-head wrap">
     <h1>{{ title }}</h1>
+    {% if dek %}<p class="post-dek">{{ dek }}</p>{% endif %}
+    <p class="byline">
+      <span class="bl"><i>Published</i> <time datetime="{{ page.date | iso }}">{{ page.date | dot }}</time></span>
+      <span class="bl"><i>by</i> 박효경</span>
+      <span class="bl"><i>in</i> <a href="/writing/#{{ category }}">{{ category | catLabel }}</a></span>
+      <span class="bl share-sep">
+        <button class="share-open" type="button" aria-haspopup="dialog" aria-controls="share">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M11.5 4.5 16.5 9l-5 4.5V11c-4 0-6.5 1-8.5 4 .5-4.5 3-7.5 8.5-8V4.5Z"/></svg>공유
+        </button>
+      </span>
+    </p>
   </header>
+  <hr class="post-rule">
 
   {% if image %}
   <figure class="cover wrap-wide">
@@ -20,10 +33,70 @@ layout: base.njk
     </div>
 
     <div class="endnote">
-      <p class="artmeta"><time datetime="{{ page.date | iso }}">{{ page.date | dot }}</time>{% if work %} {{ work }}{% endif %}{% if source %} · {{ source }}{% endif %}</p>
+      <p class="artmeta">{% if work %}{{ work }}{% endif %}{% if source %}{% if work %} · {% endif %}{{ source }}{% endif %}{% if seen %}{% if work or source %} · {% endif %}관람 <time datetime="{{ seen | iso }}">{{ seen | dot }}</time>{% endif %}</p>
+      {% if info %}<p class="artinfo">{{ info | nl2br | safe }}</p>{% endif %}
       {% if link %}<p class="endlink"><a class="text-btn" href="{{ link }}" target="_blank" rel="noopener">원문 보기 ↗</a></p>{% endif %}
     </div>
 
     <p class="back"><a href="/writing/">← 글 목록</a></p>
   </div>
+
+  <dialog class="share" id="share" aria-labelledby="share-title">
+    <div class="share-top">
+      <h2 id="share-title">공유</h2>
+      <button class="share-x" type="button" aria-label="닫기">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
+    </div>
+    <div class="share-card">
+      <img src="{{ image or '/assets/images/stage.jpg' }}" alt="" loading="lazy">
+      <div class="sc-body">
+        <p class="sc-title">{{ title }}</p>
+        <p class="sc-dek">{{ content | firstSentence }}</p>
+        <p class="sc-site"><img src="/assets/images/cat.png" alt="" width="22" height="22"><b>박효경</b> <span>| parkhyokyung.com</span></p>
+      </div>
+    </div>
+    <div class="share-actions">
+      <button class="share-copy" type="button" data-url="{{ shareUrl }}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg>
+        <span>링크 복사</span>
+      </button>
+      <a class="share-opt" href="https://twitter.com/intent/tweet?url={{ shareUrl | urlencode }}&text={{ title | urlencode }}" target="_blank" rel="noopener" aria-label="X에 공유">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="fill"><path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.77L17.75 3Zm-1.08 16.17h1.7L7.4 4.74H5.58l11.09 14.43Z"/></svg>
+      </a>
+      <a class="share-opt" href="https://www.facebook.com/sharer/sharer.php?u={{ shareUrl | urlencode }}" target="_blank" rel="noopener" aria-label="페이스북에 공유">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="fill fb"><path d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.36c0-3 1.8-4.67 4.54-4.67 1.31 0 2.68.24 2.68.24v2.95h-1.5c-1.5 0-1.96.93-1.96 1.88V12h3.33l-.53 3.47h-2.8v8.38A12 12 0 0 0 24 12Z"/></svg>
+      </a>
+      <a class="share-opt" href="mailto:?subject={{ title | urlencode }}&body={{ shareUrl | urlencode }}" aria-label="이메일로 보내기">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>
+      </a>
+      <button class="share-opt share-more" type="button" aria-label="다른 앱으로 공유" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="fill"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+      </button>
+    </div>
+  </dialog>
 </main>
+
+<script>
+(function(){
+  var dlg=document.getElementById('share'); if(!dlg) return;
+  var open=document.querySelector('.share-open'), x=dlg.querySelector('.share-x');
+  var copy=dlg.querySelector('.share-copy'), more=dlg.querySelector('.share-more');
+  var url=copy.getAttribute('data-url'), title=document.querySelector('.post-head h1').textContent;
+  function show(){ if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open',''); }
+  function hide(){ if(dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
+  open.addEventListener('click', show);
+  x.addEventListener('click', hide);
+  dlg.addEventListener('click', function(e){ if(e.target===dlg) hide(); });
+  copy.addEventListener('click', function(){
+    var label=copy.querySelector('span');
+    function done(){ label.textContent='복사됨'; setTimeout(function(){label.textContent='링크 복사'},1600); }
+    try{ navigator.clipboard.writeText(url).then(done, function(){ prompt('링크를 복사하세요', url); }); }
+    catch(e){ prompt('링크를 복사하세요', url); }
+  });
+  if(navigator.share){
+    more.hidden=false;
+    more.addEventListener('click', function(){ navigator.share({title:title, url:url}).catch(function(){}); });
+  }
+})();
+</script>
