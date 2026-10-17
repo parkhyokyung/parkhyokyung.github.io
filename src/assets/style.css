@@ -326,7 +326,7 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
 .prose{font-family:var(--serif);font-size:17.5px;line-height:1.95;letter-spacing:-.012em}
 .prose p{margin:0 0 1.25em}
 .prose h2{margin:2em 0 .6em;font-size:21px;font-weight:600;letter-spacing:-.035em}
-.prose blockquote{margin:1.6em 0;padding-left:18px;border-left:3px solid var(--yellow)}
+.prose blockquote{margin:1.8em 0;padding:clamp(20px,3vw,28px) clamp(20px,3.4vw,32px);background:var(--band);border-radius:14px}
 .prose blockquote p{margin:0}
 .prose blockquote p + p{margin-top:.9em;font-family:var(--sans);font-size:.82em;line-height:1.6;color:var(--ink-2)}
 .prose hr{border:0;margin:2.4em auto;width:40px;height:2px;background:var(--yellow)}
