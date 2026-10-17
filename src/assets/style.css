@@ -198,7 +198,7 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
 .numbered .rows{margin-top:14px}
 .mgmt .numbered h3{font-size:clamp(16px,1.5vw,17.5px);letter-spacing:-.035em}
 .mgmt .numbered .rows{margin-top:10px}
-.mgmt .rows dd{font-size:13px;line-height:1.85}
+.mgmt .rows dd{font-size:14px;line-height:1.8}
 
 /* 드라마터그 사진: Prose 테마의 카드처럼 따뜻한 바탕 안에 둥근 사진 */
 .band:has(.photo-card) .band-side{align-self:start}
@@ -325,7 +325,7 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
 .endlink{margin-top:12px}
 .endnote{margin-top:48px;padding:18px 22px;background:var(--band);border-radius:12px}
 .cover{margin-bottom:clamp(32px,5vw,48px)}
-.cover img{width:100%;border-radius:8px}
+.cover img{display:block;width:100%;height:auto;margin-inline:auto;border-radius:8px}
 .cover figcaption{margin-top:10px;font-size:12px;color:var(--ink-3);text-align:center}
 .prose{font-family:var(--book);font-size:17.5px;line-height:1.95;letter-spacing:-.025em}
 .post-dek{font-family:var(--book);letter-spacing:-.02em}

@@ -21,7 +21,7 @@ layout: base.njk
 
   {% if image %}
   <figure class="cover wrap-wide">
-    <img src="{{ image }}" alt="{{ image_alt or '' }}">
+    <img src="{{ image }}" alt="{{ image_alt or '' }}"{% if image_w %} width="{{ image_w }}" height="{{ image_h }}" style="width:min(100%,{{ image_w }}px)"{% endif %}>
     {% if caption %}<figcaption>{{ caption }}</figcaption>{% endif %}
   </figure>
   {% endif %}

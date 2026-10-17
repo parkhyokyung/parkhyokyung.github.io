@@ -11,7 +11,7 @@ description: 박효경의 비평, 프로그램 글, 논문
 {%- set nAcad = (all | byCategory("academic")).length -%}
 {%- set nRound = (all | byCategory("roundtable")).length -%}
 {%- set featured = null -%}
-{%- for it in all -%}{%- if not featured and it.data.image -%}{%- set featured = it -%}{%- endif -%}{%- endfor -%}
+{%- for it in all -%}{%- if not featured and it.data.featured -%}{%- set featured = it -%}{%- endif -%}{%- endfor -%}
 <main class="archive">
   <header class="archive-hero wrap">
     <h1>Writing</h1>
@@ -33,7 +33,7 @@ description: 박효경의 비평, 프로그램 글, 논문
   <section class="featured" data-cat="{{ featured.data.category }}">
     <h2 class="kicker">Featured</h2>
     <a class="featured-card" href="{{ fhref }}"{% if not featured.data.hasPage %} target="_blank" rel="noopener"{% endif %}>
-      <img src="{{ featured.data.image }}" alt="{{ featured.data.image_alt or '' }}" loading="lazy">
+      <img src="{{ featured.data.image }}" alt="{{ featured.data.image_alt or '' }}" loading="lazy"{% if featured.data.image_focus %} style="object-position:{{ featured.data.image_focus }}"{% endif %}>
       <span class="cat">{{ featured.data.category | catLabel }}</span>
       <span class="ftitle">{{ featured.data.title }}{% if not featured.data.hasPage %}<span class="ext"> ↗</span>{% endif %}</span>
       <span class="fmeta">{{ featured.date | dot }}{% if featured.data.work %} {{ featured.data.work }}{% endif %}</span>
