@@ -127,7 +127,7 @@ ul{padding:0;list-style:none}
 .band{display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:0 clamp(28px,4.5vw,76px);padding-block:clamp(44px,6vw,80px);border-top:1px solid var(--line);align-items:baseline}
 .band + .band{border-top:0}
 .band-side{align-self:baseline;position:sticky;top:92px}
-.band-side .sec-lede{margin-top:12px;font-size:16px;line-height:1.75;color:var(--ink);max-width:22em}
+.band-side .sec-lede{margin-top:12px;font-size:16px;line-height:1.75;color:var(--ink-2);max-width:22em}
 .list-more{grid-column:2;margin-top:16px;text-align:right}
 .list-more a{font-size:13px;color:var(--ink-2);border-bottom:2px solid var(--yellow);padding-bottom:2px}
 .list-more a:hover{color:var(--ink);border-bottom-color:var(--ink)}
@@ -180,6 +180,14 @@ ul{padding:0;list-style:none}
 .numbered li:first-child{padding-top:0}
 .card .numbered li:first-child{padding-top:17px}
 .numbered .rows{margin-top:14px}
+.mgmt .numbered h3{font-size:clamp(16px,1.5vw,17.5px);letter-spacing:-.035em}
+.mgmt .numbered .rows{margin-top:10px}
+
+/* 드라마터그 사진: Prose 테마의 카드처럼 따뜻한 바탕 안에 둥근 사진 */
+.band:has(.photo-card) .band-side{align-self:start}
+.photo-card{margin-bottom:clamp(26px,3.5vw,40px);padding:14px;background:var(--band);border-radius:14px}
+.photo-card img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px}
+.photo-card figcaption{margin-top:10px;padding-inline:2px;font-size:12px;color:var(--ink-3)}
 .after{margin-top:20px}
 
 /* management rows */
