@@ -14,7 +14,7 @@
 <meta name="theme-color" content="#121210" media="(prefers-color-scheme: dark)">
 <link rel="stylesheet" href="/assets/style.css?v={{ build }}">
 </head>
-<body>
+<body data-cite-url="{{ site.url }}{{ page.url }}"{% if layout == 'post.njk' %} data-cite-title="{{ title }}"{% endif %}{% if page.url == '/cv/' %} data-cite-lang="en"{% endif %}>
 <header class="site-head">
   <div class="wrap-wide">
     <a class="site-name" href="/">Park Hyokyung</a>
@@ -72,6 +72,28 @@
     <p class="foot-legal">© {{ "now" | year }} Park Hyokyung</p>
   </div>
 </footer>
+
+<script>
+/* 복사할 때 출처 붙이기. 짧은 조각(이메일 등)과 입력칸은 건드리지 않는다 */
+(function(){
+  var b=document.body, url=b.getAttribute('data-cite-url')||location.href;
+  var title=b.getAttribute('data-cite-title'), en=b.getAttribute('data-cite-lang')==='en';
+  var line = en ? 'Source: Park Hyokyung, '+url
+    : '출처: 박효경'+(title ? ', ｢'+title+'｣' : ' Park Hyokyung')+', '+url;
+  document.addEventListener('copy', function(e){
+    var t=e.target, tag=t && t.nodeName;
+    if(tag==='INPUT'||tag==='TEXTAREA') return;
+    var sel=window.getSelection(); if(!sel||sel.isCollapsed) return;
+    var text=sel.toString(); if(text.trim().length<20 || !e.clipboardData) return;
+    var box=document.createElement('div');
+    for(var i=0;i<sel.rangeCount;i++) box.appendChild(sel.getRangeAt(i).cloneContents());
+    var esc=function(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')};
+    e.clipboardData.setData('text/plain', text+'\n\n'+line);
+    e.clipboardData.setData('text/html', box.innerHTML+'<p><br>'+esc(line).replace(esc(url),'<a href="'+url+'">'+esc(url)+'</a>')+'</p>');
+    e.preventDefault();
+  });
+})();
+</script>
 
 <script>
 (function(){
