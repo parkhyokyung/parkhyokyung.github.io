@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{% if title %}{{ title }} · {% endif %}박효경 Park Hyokyung</title>
-<meta name="description" content="{{ description or ((work + ' · 박효경') if work) or '극장 다니는 사람. 연극, 평론, 드라마터지, 연구.' }}">
+<meta name="description" content="{{ description or ((work + ' · 박효경') if work) or '극장 다니는 사람. 연극, 비평, 드라마터지, 연구.' }}">
 <meta property="og:title" content="{% if title %}{{ title }} · {% endif %}박효경 Park Hyokyung">
-<meta property="og:description" content="{{ description or ((work + ' · 박효경') if work) or '극장 다니는 사람. 연극, 평론, 드라마터지, 연구.' }}">
+<meta property="og:description" content="{{ description or ((work + ' · 박효경') if work) or '극장 다니는 사람. 연극, 비평, 드라마터지, 연구.' }}">
 <meta property="og:image" content="{{ site.url }}{{ image or '/assets/images/stage.jpg' }}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:type" content="{% if layout == 'post.njk' %}article{% else %}website{% endif %}">
