@@ -2,7 +2,7 @@
 title: "김현탁"
 slug: kimhyeontak
 category: programme
-date: 2026-04-02
+date: 2026-04-16
 work: "성북동비둘기 〈걸리버스 3〉"
 source: "『〈걸리버스 3〉 프로그램』"
 image: "/assets/images/kimhyeontak.jpg"
