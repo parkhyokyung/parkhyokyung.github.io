@@ -198,6 +198,7 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
 .numbered .rows{margin-top:14px}
 .mgmt .numbered h3{font-size:clamp(16px,1.5vw,17.5px);letter-spacing:-.035em}
 .mgmt .numbered .rows{margin-top:10px}
+.mgmt .rows dd{font-size:13px;line-height:1.85}
 
 /* 드라마터그 사진: Prose 테마의 카드처럼 따뜻한 바탕 안에 둥근 사진 */
 .band:has(.photo-card) .band-side{align-self:start}
@@ -205,7 +206,7 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
 .photo-card img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px}
 .photo-card.on-tint{background:var(--paper)}
 .photo-card figcaption em{font-style:italic}
-.numbered .support{margin-top:2px;font-size:12.5px;line-height:1.6;color:var(--yellow-ink)}
+.numbered .support{margin-top:2px;font-size:12.5px;line-height:1.6;color:var(--ink-3)}
 .photo-card figcaption{margin-top:10px;padding-inline:2px;font-size:12px;color:var(--ink-3)}
 .after{margin-top:20px}
 
@@ -255,7 +256,7 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
 /* 글 목록: 가운데 큰 제목, 아래 따뜻한 바탕에 목록 */
 .archive-hero{text-align:center;padding-block:clamp(56px,9vw,108px) clamp(48px,7vw,84px)}
 .archive-hero h1{font-size:clamp(42px,6.4vw,60px);font-weight:400;line-height:1.08;letter-spacing:-.035em}
-.archive-hero .lede{margin:20px auto 0;max-width:24em;font-size:clamp(17px,1.9vw,19.5px);line-height:1.75;color:var(--ink-2);text-wrap:balance}
+.archive-hero .lede{margin:18px auto 0;max-width:26em;font-size:clamp(14.5px,1.6vw,16px);line-height:1.8;color:var(--ink-2);text-wrap:balance}
 .pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:32px}
 .pill{font:inherit;font-size:14px;line-height:1;padding:10px 16px;border-radius:999px;cursor:pointer;color:var(--ink);background:transparent;border:1px solid var(--line)}
 .pill:hover{color:var(--ink);border-color:var(--ink-3)}
