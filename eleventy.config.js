@@ -17,6 +17,13 @@ export default function (config) {
 
   config.addFilter("byCategory", (items, key) => items.filter((i) => i.data.category === key));
   config.addFilter("onlyCategories", (items, keys) => items.filter((i) => keys.includes(i.data.category)));
+  // CV의 '글 n편, 2025–26' 같은 줄. 글을 더하면 저절로 맞춰진다
+  config.addFilter("yearSpan", (items) => {
+    const ys = items.map((i) => new Date(i.date).getUTCFullYear());
+    if (!ys.length) return "";
+    const a = Math.min(...ys), b = Math.max(...ys);
+    return a === b ? String(a) : `${a}–${String(b).slice(-2)}`;
+  });
 
   config.addFilter("year", (d) => (d === "now" ? new Date() : new Date(d)).getUTCFullYear());
 

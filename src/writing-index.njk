@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /writing/
 title: 글
-description: 박효경의 비평, 프로그램 글, 논문
+description: 박효경이 극장에서 보고 쓴 글, 프로그램에 실은 글, 논문
 ---
 {%- set all = collections.writing -%}
 {%- set nCrit = (all | byCategory("criticism")).length -%}
@@ -15,7 +15,7 @@ description: 박효경의 비평, 프로그램 글, 논문
 <main class="archive">
   <header class="archive-hero wrap">
     <h1>Writing</h1>
-    <p class="lede">극장에서 본 것을 쓴 비평, 공연 프로그램에 실은 글, 논문.</p>
+    <p class="lede">극장에서 보고 쓴 글, 프로그램에 실은 글, 논문.</p>
     <div class="pills" role="group" aria-label="분류">
       <button class="pill" type="button" data-filter="all" aria-pressed="true">전체 <span class="n">{{ all.length }}</span></button>
       {% if nCrit %}<button class="pill" type="button" data-filter="criticism" aria-pressed="false">비평 <span class="n">{{ nCrit }}</span></button>{% endif %}

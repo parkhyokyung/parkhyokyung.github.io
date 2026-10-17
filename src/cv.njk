@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /cv/
 title: CV
-description: Park Hyokyung. Theatre critic and dramaturg based in Seoul.
+description: Park Hyokyung. Theatre critic, dramaturg, and researcher based in Seoul.
 ---
 <main class="cv wrap-wide" lang="en">
   <header class="cv-head">
@@ -67,8 +67,8 @@ description: Park Hyokyung. Theatre critic and dramaturg based in Seoul.
       <li><div><p class="meta"><span>2026</span><span>SAI Criticism</span></p><h3><a href="https://saicriticism.com/%ec%bb%a8%ec%bb%a8-%ea%b3%a1%ec%98%88%ec%82%ac%ed%9b%88%eb%a0%a8-%ec%9a%b0%eb%a6%ac%ec%97%90%ea%b2%8c%eb%8a%94-%eb%8d%94-%eb%a7%8e%ec%9d%80-%ec%8b%a4%ed%8c%a8%eb%8b%b4%ec%9d%b4-%ed%95%84%ec%9a%94/" target="_blank" rel="noopener">We Need More Stories of Failure<span class="ext"> ↗</span></a></h3><p class="dek">On CONTCONN's <em>Acrobat Training</em></p></div></li>
       <li><div><p class="meta"><span>2026</span><span>Arts Council Korea</span></p><h3><a href="https://blog.naver.com/arko_korea/224177115901" target="_blank" rel="noopener">On Naming and Being Named<span class="ext"> ↗</span></a></h3><p class="dek">On MBZ Company's <em>Bbangya</em></p></div></li>
       <li><div><p class="meta"><span>2026</span><span>The Korean Theatre Review</span></p><h3><a href="https://ktheater.co.kr/main/03/01_view.php?key=eElETg==" target="_blank" rel="noopener">A Record of a Body Thrown Clear of the Gears<span class="ext"> ↗</span></a></h3><p class="dek">On Gongzone's <em>Hyunjung, Sunk in the Mudflat</em></p></div></li>
-      <li><div><p class="meta"><span>2025–26</span><span>Seongbukdong Beedoolkee Theatre</span></p><h3><a href="/writing/#programme">Programme essays, 6 pieces</a></h3><p class="dek">Written as the company's dramaturg, for its production programmes</p></div></li>
-      <li><div><p class="meta"><span>2026</span><span>SAI Criticism</span></p><h3><a href="/writing/#brief">Short reviews, 28 pieces</a></h3><p class="dek">Written on productions seen through 2026</p></div></li>
+      <li><div><p class="meta">{%- set pg = collections.writing | onlyCategories(["programme"]) %}<span>{{ pg | yearSpan }}</span><span>Seongbukdong Beedoolkee Theatre</span></p><h3><a href="/writing/#programme">Programme essays, {{ pg.length }} pieces</a></h3><p class="dek">Written as the company's dramaturg, for its production programmes</p></div></li>
+      <li><div><p class="meta">{%- set br = collections.writing | onlyCategories(["brief"]) %}<span>{{ br | yearSpan }}</span><span>SAI Criticism</span></p><h3><a href="/writing/#brief">Short reviews, {{ br.length }} pieces</a></h3><p class="dek">Written on productions seen in {{ br | yearSpan }}</p></div></li>
       <li><div><p class="meta"><span>Forthcoming</span><span>National Theater of Korea</span></p><h3><em>Shifting the Question of Sustainable Theatre: Seongbukdong Beedoolkee Theatre's Empty Stage and Climate Justice</em></h3></div></li>
     </ul>
   </section>
