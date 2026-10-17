@@ -271,7 +271,6 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
 .featured-card .ftitle{display:block;margin-top:5px;font-size:19.5px;font-weight:500;letter-spacing:-.045em;line-height:1.4;color:var(--ink)}
 .featured-card:hover .ftitle{text-decoration:underline;text-underline-offset:.2em}
 .featured-card .fmeta{display:block;margin-top:5px;padding-bottom:4px;font-size:13.5px;color:var(--ink-3)}
-.fcredit{margin-top:8px;padding-left:14px;font-size:12px;color:var(--ink-3)}
 .year-group{padding-top:clamp(28px,4vw,44px)}
 .year{font-size:15px;font-weight:600;letter-spacing:.08em;color:var(--ink);padding-bottom:16px;border-bottom:1px solid var(--line)}
 .entry{padding-block:clamp(22px,2.6vw,30px);border-bottom:1px solid var(--line)}
@@ -289,11 +288,12 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
 .byline i{margin-right:3px;font-weight:400;font-size:16px;color:var(--ink-3)}
 .byline a:hover{color:var(--ink)}
 .byline time{font-variant-numeric:tabular-nums}
-.share-sep{padding-left:14px;border-left:1px solid var(--line)}
+.share-sep{position:relative;padding-left:16px}
+.share-sep::before{content:"";position:absolute;left:0;top:50%;width:1px;height:12px;transform:translateY(-50%);background:var(--line)}
 .share-open{display:inline-flex;align-items:center;gap:6px;font:inherit;color:inherit;background:none;border:0;padding:4px 0;cursor:pointer}
 .share-open:hover{color:var(--ink)}
 .share-open svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round}
-.post-head{margin-bottom:clamp(8px,2vw,20px)}
+.post-head{margin-bottom:clamp(24px,4vw,40px);border-bottom:1px solid var(--line)}
 .artinfo{margin-top:8px;font-size:13.5px;line-height:1.7;color:var(--ink-2)}
 
 /* 공유 창 */
@@ -368,5 +368,6 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
   .numbered .num{font-size:18px}
   .rows div{grid-template-columns:minmax(0,1fr);gap:0}
   .prose{font-size:16.5px}
-  .share-sep{flex-basis:100%;padding-left:0;border-left:0}
+  .share-sep{flex-basis:100%;padding-left:0}
+  .share-sep::before{display:none}
 }
