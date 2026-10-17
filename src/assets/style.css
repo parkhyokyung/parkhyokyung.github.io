@@ -279,18 +279,18 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
 .post-head{padding-block:clamp(40px,7vw,80px) clamp(28px,4vw,40px)}
 .post-head h1{font-size:clamp(30px,4.8vw,46px);font-weight:400;line-height:1.22;letter-spacing:-.04em;text-wrap:balance}
 .post-dek{margin-top:18px;font-size:clamp(17px,1.9vw,19.5px);line-height:1.7;color:var(--ink-2)}
-.byline{display:flex;align-items:baseline;column-gap:10px;margin-top:22px;font-size:13px;font-weight:500;letter-spacing:.02em;line-height:1.75;color:var(--ink-2)}
-.bl-text{flex:none}
+.byline{margin-top:22px;font-size:13px;font-weight:500;letter-spacing:.02em;line-height:1.75;color:var(--ink-2)}
+.bl-text{display:inline}
 .bl{white-space:nowrap;margin-right:10px}
 .bl-text .bl:last-child{margin-right:0}
 .byline i{margin-right:3px;font-weight:400;font-size:16px;color:var(--ink-3)}
 .byline a:hover{color:var(--ink)}
 .byline time{font-variant-numeric:tabular-nums}
-.share-sep{flex:none;position:relative;margin-left:6px;padding-left:16px}
-.share-sep::before{content:"";position:absolute;left:0;top:50%;width:1px;height:12px;transform:translateY(-50%);background:var(--line)}
-.share-open{display:inline-flex;align-items:center;gap:6px;font:inherit;line-height:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;white-space:nowrap}
+.share-sep{position:relative;margin-left:6px;padding-left:16px;white-space:nowrap}
+.share-sep::before{content:"";position:absolute;left:0;top:calc(50% + .25px);width:1px;height:12px;transform:translateY(-50%);background:var(--line)}
+.share-open{display:inline;font:inherit;line-height:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;white-space:nowrap}
 .share-open:hover{color:var(--ink)}
-.share-open svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round}
+.share-open svg{display:inline-block;width:16px;height:16px;margin-right:6px;vertical-align:-3.65px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round}
 .post-head{margin-bottom:clamp(24px,4vw,40px);border-bottom:1px solid var(--line)}
 .artinfo{margin-top:8px;font-size:13px;line-height:1.7;color:var(--ink-2)}
 
