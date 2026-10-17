@@ -9,7 +9,6 @@ layout: base.njk
     {% if dek %}<p class="post-dek">{{ dek }}</p>{% endif %}
     <div class="byline">
       <p class="bl-text"><span class="bl"><i>Published</i> <time datetime="{{ page.date | iso }}">{{ page.date | dot }}</time></span> <span class="bl"><i>by</i> 박효경</span></p>
-      <p class="bl-src"><i>in</i>&nbsp;{% if source %}{{ source }}{% else %}<a href="/writing/#{{ category }}">{{ category | catLabel }}</a>{% endif %}</p>
       <span class="share-sep">
         <button class="share-open" type="button" aria-haspopup="dialog" aria-controls="share">
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M11.5 4.5 16.5 9l-5 4.5V11c-4 0-6.5 1-8.5 4 .5-4.5 3-7.5 8.5-8V4.5Z"/></svg>공유
@@ -31,7 +30,7 @@ layout: base.njk
     </div>
 
     <div class="endnote">
-      <p class="artmeta">{{ category | catLabel }}{% if work %} · {{ work }}{% endif %}{% if seen %} · 관람 <time datetime="{{ seen | iso }}">{{ seen | dot }}</time>{% endif %}</p>
+      <p class="artmeta">{{ category | catLabel }}{% if source %} · {{ source }}{% elif work %} · {{ work }}{% endif %}{% if seen %} · 관람 <time datetime="{{ seen | iso }}">{{ seen | dot }}</time>{% endif %}</p>
       {% if info %}<p class="artinfo">{{ info | nl2br | safe }}</p>{% endif %}
       {% if link %}<p class="endlink"><a class="text-btn" href="{{ link }}" target="_blank" rel="noopener">원문 보기 ↗</a></p>{% endif %}
     </div>
