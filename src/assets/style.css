@@ -307,7 +307,6 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
 .share-card > img{width:100%;aspect-ratio:16/9;object-fit:cover}
 .sc-body{padding:16px 18px 18px}
 .sc-title{font-size:18px;font-weight:600;line-height:1.4;letter-spacing:-.03em}
-.sc-dek{margin-top:6px;font-size:14px;line-height:1.6;color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .sc-site{display:flex;align-items:center;gap:7px;margin-top:14px;font-size:13px;color:var(--ink-2)}
 .sc-site img{width:22px;height:22px;border-radius:50%}
 .sc-site b{color:var(--ink);font-weight:600}

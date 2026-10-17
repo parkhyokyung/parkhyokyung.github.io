@@ -3,8 +3,8 @@
   "short_name": "박효경",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#fdfbf7",
-  "theme_color": "#f6cc5e",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "/icon-192.png",
