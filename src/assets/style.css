@@ -271,6 +271,7 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
 .featured-card .ftitle{display:block;margin-top:5px;font-size:19.5px;font-weight:500;letter-spacing:-.045em;line-height:1.4;color:var(--ink)}
 .featured-card:hover .ftitle{text-decoration:underline;text-underline-offset:.2em}
 .featured-card .fmeta{display:block;margin-top:5px;padding-bottom:4px;font-size:13.5px;color:var(--ink-3)}
+.fcredit{margin-top:8px;padding-left:14px;font-size:12px;color:var(--ink-3)}
 .year-group{padding-top:clamp(28px,4vw,44px)}
 .year{font-size:15px;font-weight:600;letter-spacing:.08em;color:var(--ink);padding-bottom:16px;border-bottom:1px solid var(--line)}
 .entry{padding-block:clamp(22px,2.6vw,30px);border-bottom:1px solid var(--line)}

@@ -38,6 +38,7 @@ description: 박효경의 비평, 프로그램 글, 논문
       <span class="ftitle">{{ featured.data.title }}{% if not featured.data.hasPage %}<span class="ext"> ↗</span>{% endif %}</span>
       <span class="fmeta">{{ featured.date | dot }}{% if featured.data.work %} {{ featured.data.work }}{% endif %}</span>
     </a>
+    {% if featured.data.caption %}<p class="fcredit">{{ featured.data.caption }}</p>{% endif %}
   </section>
   {%- endif %}
 
