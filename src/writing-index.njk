@@ -27,11 +27,11 @@ description: 박효경이 극장에서 보고 쓴 글, 프로그램에 실은 �
   </header>
 
   <div class="archive-list tint">
-  <div class="wrap">
+  <div class="wrap-wide">
   {%- if featured %}
   {%- set fhref = featured.url if featured.data.hasPage else featured.data.link %}
-  <section class="featured" data-cat="{{ featured.data.category }}">
-    <h2 class="kicker">Featured</h2>
+  <section class="featured split" data-cat="{{ featured.data.category }}">
+    <div class="split-side"><h2 class="kicker">Featured</h2></div>
     <a class="featured-card" href="{{ fhref }}"{% if not featured.data.hasPage %} target="_blank" rel="noopener"{% endif %}>
       <img src="{{ featured.data.image }}" alt="{{ featured.data.image_alt or '' }}" loading="lazy"{% if featured.data.image_focus %} style="object-position:{{ featured.data.image_focus }}"{% endif %}>
       <span class="cat">{{ featured.data.category | catLabel }}</span>
@@ -42,8 +42,8 @@ description: 박효경이 극장에서 보고 쓴 글, 프로그램에 실은 �
   {%- endif %}
 
   {%- for g in all | byYear %}
-  <section class="year-group" data-group>
-    <h2 class="year">{{ g.year }}</h2>
+  <section class="year-group split" data-group>
+    <div class="split-side"><h2 class="year">{{ g.year }}</h2></div>
     <ul class="entries">
     {%- for item in g.items %}
       <li class="entry" data-cat="{{ item.data.category }}">

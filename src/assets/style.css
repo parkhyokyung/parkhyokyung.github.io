@@ -246,6 +246,19 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
 .notfound-links{display:flex;justify-content:center;gap:22px;margin-top:28px}
 .notfound .kicker{text-align:center}
 
+/* 글 목록·글 본문: 메인 섹션과 같은 틀. 왼쪽 14rem에 라벨, 오른쪽에 내용 */
+.split{display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:0 clamp(28px,4.5vw,76px);align-items:start}
+.split-side{position:sticky;top:92px}
+.split-main{grid-column:2}
+.post-head.split{align-items:baseline}
+.post-head .split-side{position:static}
+.post-head::after{content:"";grid-column:1/-1;height:1px;margin-top:clamp(28px,4vw,40px);background:var(--line)}
+@media (max-width:860px){
+  .split{grid-template-columns:minmax(0,1fr);gap:14px}
+  .split-side{position:static}
+  .split-main{grid-column:1}
+}
+
 /* 글 목록: 가운데 큰 제목, 아래 따뜻한 바탕에 목록 */
 .archive-hero{text-align:center;padding-block:clamp(56px,9vw,108px) clamp(48px,7vw,84px)}
 .archive-hero h1{font-size:clamp(42px,6.4vw,60px);font-weight:400;line-height:1.08;letter-spacing:-.035em}
@@ -265,7 +278,8 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
 .featured-card:hover .ftitle{text-decoration:underline;text-underline-offset:.2em}
 .featured-card .fmeta{display:block;margin-top:5px;font-size:13px;color:var(--ink-3)}
 .year-group{padding-top:clamp(28px,4vw,44px)}
-.year{font-size:13px;font-weight:600;letter-spacing:.08em;color:var(--ink);padding-bottom:16px;border-bottom:1px solid var(--line)}
+.year{font-size:13px;font-weight:600;letter-spacing:.08em;color:var(--ink)}
+.entries{border-top:1px solid var(--line)}
 .entry{padding-block:clamp(22px,2.6vw,30px);border-bottom:1px solid var(--line)}
 .entry h3{font-size:20px;font-weight:400;line-height:1.45;letter-spacing:-.03em;text-wrap:pretty}
 .entry h3 a:hover{color:var(--ink-2)}
@@ -274,7 +288,7 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
 
 /* article */
 /* 글 페이지: 왼쪽 정렬 큰 제목, 부제, 발행 정보 한 줄, 가는 선 */
-.post-head{padding-block:clamp(40px,7vw,80px) clamp(28px,4vw,40px)}
+.post-head{padding-block:clamp(40px,7vw,80px) 0}
 .post-head h1{font-size:clamp(30px,4.8vw,46px);font-weight:400;line-height:1.22;letter-spacing:-.04em;text-wrap:balance}
 .post-dek{margin-top:18px;font-size:clamp(17px,1.9vw,19.5px);line-height:1.7;color:var(--ink-2)}
 .byline{margin-top:22px;font-size:13px;font-weight:500;letter-spacing:.02em;line-height:1.75;color:var(--ink-2)}
@@ -289,7 +303,7 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
 .share-open{display:inline;font:inherit;line-height:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;white-space:nowrap}
 .share-open:hover{color:var(--ink)}
 .share-open svg{display:inline-block;width:16px;height:16px;margin-right:6px;vertical-align:-3.65px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round}
-.post-head{margin-bottom:clamp(24px,4vw,40px);border-bottom:1px solid var(--line)}
+.post-head{margin-bottom:clamp(24px,4vw,40px)}
 .artinfo{margin-top:8px;font-size:13px;line-height:1.7;color:var(--ink-2)}
 
 /* 공유 창 */
@@ -321,9 +335,9 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
 .endlink{margin-top:12px}
 .endnote{margin-top:48px;padding:18px 22px;background:var(--band)}
 .cover{margin-bottom:clamp(32px,5vw,48px)}
-.cover img{display:block;width:100%;height:auto;margin-inline:auto}
-.cover figcaption{margin-top:10px;font-size:12px;color:var(--ink-3);text-align:center}
-.prose{font-family:var(--book);font-size:17.5px;line-height:1.95;letter-spacing:-.025em}
+.cover img{display:block;width:100%;height:auto}
+.cover figcaption{margin-top:10px;font-size:12px;color:var(--ink-3)}
+.prose{max-width:40em;font-family:var(--book);font-size:17.5px;line-height:1.95;letter-spacing:-.025em}
 .post-dek{font-family:var(--book);letter-spacing:-.02em}
 .prose p{margin:0 0 1.25em}
 .prose h2{margin:2em 0 .6em;font-family:var(--sans);font-size:21px;font-weight:500;letter-spacing:-.035em}
