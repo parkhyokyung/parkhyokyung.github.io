@@ -14,11 +14,14 @@ permalink: /
       <h2 class="kicker">Latest writing</h2>
       <p class="sec-lede">극장에서 보고 쓴 글과 프로그램에 실은 글.</p>
     </div>
-    <ul class="titles">
+    <ul class="numbered plain">
 {%- for item in collections.writing | onlyCategories(["criticism","programme"]) | head(5) %}
       <li>
-        {% if item.data.hasPage %}<a class="t" href="{{ item.url }}">{{ item.data.title }}</a>{% elif item.data.link %}<a class="t" href="{{ item.data.link }}" target="_blank" rel="noopener">{{ item.data.title }}<span class="ext" aria-label="외부 링크"> ↗</span></a>{% else %}<span class="t">{{ item.data.title }}</span>{% endif %}
-        {%- if item.data.work %}<span class="row-meta">{{ item.data.work }}</span>{% endif %}
+        <div>
+          <p class="meta"><time datetime="{{ item.date | iso }}">{{ item.date | dot }}</time><span>{{ item.data.category | catLabel }}</span></p>
+          <h3>{% if item.data.hasPage %}<a href="{{ item.url }}">{{ item.data.title }}</a>{% elif item.data.link %}<a href="{{ item.data.link }}" target="_blank" rel="noopener">{{ item.data.title }}<span class="ext" aria-label="외부 링크"> ↗</span></a>{% else %}{{ item.data.title }}{% endif %}</h3>
+          {%- if item.data.work %}<p class="dek">{{ item.data.work }}</p>{% endif %}
+        </div>
       </li>
 {%- endfor %}
     </ul>

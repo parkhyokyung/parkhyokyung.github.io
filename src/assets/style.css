@@ -173,12 +173,6 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
 .sec-head.stack .row{display:flex;align-items:flex-end;justify-content:space-between;gap:14px 28px;flex-wrap:wrap;margin-top:12px}
 .sec-head.stack .sec-lede{flex:1 1 18em;min-width:0;max-width:30em;font-size:16px;line-height:1.7;color:var(--ink)}
 .sec-head.stack .more-link{margin-left:auto}
-.titles{border-top:1px solid var(--line)}
-.titles > li{display:flex;align-items:baseline;justify-content:space-between;gap:10px 28px;border-bottom:1px solid var(--line);padding-block:18px}
-.titles .t{flex:0 1 auto;font-size:clamp(17px,1.8vw,20px);font-weight:500;line-height:1.42;letter-spacing:-.035em}
-.titles .ext{white-space:nowrap}
-.titles a.t:hover{color:var(--ink-2)}
-.row-meta{flex:0 1 auto;font-size:13px;line-height:1.5;color:var(--ink-3);text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .co{margin-left:10px;font-size:13px;font-weight:400;letter-spacing:-.01em;text-transform:none;color:var(--ink-2)}
 .numbered li{display:grid;grid-template-columns:3.25rem minmax(0,1fr);gap:0 8px;padding-block:17px;border-bottom:1px solid var(--line)}
 .numbered .num{font-size:20px;font-weight:300;color:var(--ink-3);font-variant-numeric:tabular-nums;line-height:1.5}
@@ -342,7 +336,6 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
   .band-side{position:static}
   .band-side .sec-lede{max-width:none}
   .list-more{grid-column:1}
-  .titles > li{flex-direction:column;align-items:flex-start;gap:4px}
   .row-meta{text-align:left;white-space:normal}
 }
 @media (max-width:760px){
