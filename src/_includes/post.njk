@@ -4,9 +4,8 @@ layout: base.njk
 {%- set shareUrl = site.url + page.url -%}
 {%- set dek = subtitle or work -%}
 <main class="article">
-  <header class="post-head wrap-wide split">
-    <div class="split-side"><p class="kicker">{{ category | catLabel }}</p></div>
-    <div class="post-title">
+  <header class="post-head wrap-wide">
+    <p class="kicker">{{ category | catLabel }}</p>
     <h1>{{ title }}</h1>
     {% if dek %}<p class="post-dek">{{ dek }}</p>{% endif %}
     <div class="byline">
@@ -17,20 +16,16 @@ layout: base.njk
         </button>
       </span>
     </div>
-    </div>
   </header>
 
   {% if image %}
-  <div class="wrap-wide split">
-  <figure class="cover split-main">
+  <figure class="cover wrap-wide">
     <img src="{{ image }}" alt="{{ image_alt or '' }}"{% if image_w %} width="{{ image_w }}" height="{{ image_h }}" style="width:min(100%,{{ image_w }}px)"{% endif %}>
     {% if caption %}<figcaption>{{ caption }}</figcaption>{% endif %}
   </figure>
-  </div>
   {% endif %}
 
-  <div class="wrap-wide split">
-  <div class="split-main">
+  <div class="wrap-wide">
     <div class="prose">
 {{ content | safe }}
     </div>
@@ -42,7 +37,6 @@ layout: base.njk
     </div>
 
     <p class="back"><a href="/writing/">← 글 목록</a></p>
-  </div>
   </div>
 
   <dialog class="share" id="share" aria-labelledby="share-title">
