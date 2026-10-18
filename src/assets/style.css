@@ -187,6 +187,7 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
 .card .numbered li:first-child{padding-top:17px}
 .numbered .rows{margin-top:14px}
 .mgmt .numbered h3{font-size:16px;letter-spacing:-.03em}
+.mgmt .numbered .dek{color:var(--ink-2)}
 .mgmt .numbered .rows{margin-top:10px}
 .mgmt .rows{gap:4px}
 .mgmt .rows dt{padding-top:0}
