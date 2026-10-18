@@ -187,7 +187,9 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
 .card .numbered li:first-child{padding-top:17px}
 .numbered .rows{margin-top:14px}
 .mgmt .numbered .rows{margin-top:10px}
-.mgmt .rows dd{line-height:1.8}
+.mgmt .rows{gap:4px}
+.mgmt .rows dt{padding-top:0}
+.mgmt .rows dd{font-size:13px;line-height:1.7;color:var(--ink-2)}
 
 /* 드라마터그 사진: Prose 테마의 카드처럼 따뜻한 바탕 안에 둥근 사진 */
 .band:has(.photo-card) .band-side{align-self:start}
