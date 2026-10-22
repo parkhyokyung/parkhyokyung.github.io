@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{% if title %}{{ title }} · {% endif %}박효경 Park Hyokyung</title>
-<meta name="description" content="{{ description or ((work + ' · 박효경') if work) or '극장 다니는 사람. 연극, 비평, 드라마터지, 연구.' }}">
+<meta name="description" content="{{ description or ((work + ' · 박효경') if work) or '극장 다니는 사람. 연극 비평가이자 드라마터그. 성북동비둘기 상주 드라마터그, 공연평론웹진 사이:비평 필진.' }}">
 <meta property="og:title" content="{% if title %}{{ title }} · {% endif %}박효경 Park Hyokyung">
-<meta property="og:description" content="{{ description or ((work + ' · 박효경') if work) or '극장 다니는 사람. 연극, 비평, 드라마터지, 연구.' }}">
+<meta property="og:description" content="{{ description or ((work + ' · 박효경') if work) or '극장 다니는 사람. 연극 비평가이자 드라마터그. 성북동비둘기 상주 드라마터그, 공연평론웹진 사이:비평 필진.' }}">
 <meta property="og:image" content="{{ site.url }}{{ image or '/assets/images/stage.jpg' }}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:type" content="{% if layout == 'post.njk' %}article{% else %}website{% endif %}">
@@ -17,6 +17,26 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/assets/style.css?v={{ build }}">
+{%- if page.url == '/' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "박효경",
+  "alternateName": ["Park Hyokyung", "박효경 Park Hyokyung"],
+  "jobTitle": ["연극 비평가", "연극 평론가", "드라마터그"],
+  "description": "연극 비평가이자 드라마터그. 성북동비둘기 상주 드라마터그, 공연평론웹진 사이:비평 필진.",
+  "url": "{{ site.url }}/",
+  "image": "{{ site.url }}/icon-512.png",
+  "email": "hyokyung.scene@gmail.com",
+  "knowsLanguage": ["ko", "en"],
+  "nationality": "KR",
+  "worksFor": { "@type": "Organization", "name": "극단 성북동비둘기", "url": "https://www.beedoolkeetheatre.com/" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "서울대학교 대학원" },
+  "sameAs": ["https://www.instagram.com/1evening/"]
+}
+</script>
+{%- endif %}
 </head>
 <body data-cite-url="{{ site.url }}{{ page.url }}"{% if layout == 'post.njk' %} data-cite-title="{{ title }}"{% endif %}{% if page.url == '/cv/' %} data-cite-lang="en"{% endif %}>
 <header class="site-head">
