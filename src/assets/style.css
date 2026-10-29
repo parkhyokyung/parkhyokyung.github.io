@@ -235,10 +235,6 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
 .cv-head h1{margin-top:10px;font-size:clamp(38px,6vw,56px);font-weight:500;letter-spacing:-.055em;line-height:1.08}
 .cv-lede{margin-top:18px;max-width:38em;font-size:16px;line-height:1.75}
 .cv-lede em{font-style:italic}
-.cv-mail{margin-top:18px;font-size:16px;color:var(--ink-2)}
-.cv-mail a{border-bottom:2px solid var(--line);padding-bottom:2px}
-.cv-mail a:hover{color:var(--ink)}
-.cv-mail .sep{opacity:.5;margin:0 4px;border:0}
 .cv-updated{margin-top:14px;font-size:12px;letter-spacing:.04em;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .cv .band{padding-block:clamp(34px,4.5vw,56px)}
 .cv .rows dd em,.cv .dek em{font-style:italic}
