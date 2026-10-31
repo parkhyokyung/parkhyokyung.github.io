@@ -373,5 +373,6 @@ body:has(.archive-list) .site-foot{background:var(--paper)}
 .card .numbered li:last-child{border-bottom:0}
   .numbered .num{font-size:20px}
   .rows div{grid-template-columns:minmax(0,1fr);gap:0}
+  .rows dt:empty{display:none}
   .prose{font-size:16.5px}
 }
