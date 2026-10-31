@@ -195,7 +195,7 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
 .mgmt .rows{gap:4px}
 .mgmt .rows dt{padding-top:0}
 .mgmt .rows dd{font-size:16px;line-height:1.6;color:var(--ink)}
-main:not([lang="en"]) .mgmt .rows dd{font-size:14px;line-height:1.7;color:var(--ink-2)}
+main:not([lang="en"]) .mgmt .rows dd{font-size:15px;line-height:1.7;color:var(--ink)}
 
 /* 드라마터그 사진: Prose 테마의 카드처럼 따뜻한 바탕 안에 둥근 사진 */
 .band:has(.photo-card) .band-side{align-self:start}
