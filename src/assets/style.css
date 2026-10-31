@@ -163,10 +163,6 @@ em,i,cite{font-family:"Crimson Text",var(--kr);font-style:italic;font-size:1.06e
 .roles li{font-size:16px;font-weight:500;line-height:1.75;letter-spacing:-.02em}
 .roles .when{font-weight:400;font-size:13px;color:var(--ink-3);white-space:nowrap}
 .roles li + li{margin-top:2px}
-.about-mail{margin-top:24px;margin-left:calc(3.6rem + 14px);font-family:var(--kr);font-size:13px}
-.about-mail a{color:var(--ink-2)}
-.about-mail a:hover{color:var(--ink)}
-.about-mail .sep{opacity:.4;margin:0 4px}
 
 /* section blocks */
 .latest{padding-block:clamp(40px,5.5vw,64px)}
